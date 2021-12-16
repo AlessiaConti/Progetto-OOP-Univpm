@@ -2,7 +2,7 @@ package com.univpm.openweather.model;
 
 public class Città {
 
-	//classe che definisce la città dalla quale si ottengono le previsioni
+	//classe che definisce la citta' dalla quale si ottengono le previsioni
 	
 	//attributi
 	private int lon;
