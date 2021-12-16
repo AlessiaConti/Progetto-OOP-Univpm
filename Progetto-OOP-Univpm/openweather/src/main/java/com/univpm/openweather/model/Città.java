@@ -1,13 +1,16 @@
 package com.univpm.openweather.model;
 
+import java.util.Vector;
+
 public class Città {
 
 	//classe che definisce la citta' dalla quale si ottengono le previsioni
 	
 	//attributi
-	private Coordinate coordinate; 
 	private int iD;
 	private String nome;
+	private Coordinate coordinate; //attributo di tipo 'coordinate' (lon e lat della città)
+	private Vector<InformazioniMeteo> vector = new Vector<InformazioniMeteo>(); //vettore che contiene info meteo della città
 	
 	//getter
 	public Coordinate getCoordinate() {
@@ -22,6 +25,13 @@ public class Città {
 		return nome;
 	}
 	
+
+    //(Metodo che restituisce il vettore di informazioniMeteo della città)
+	public Vector<InformazioniMeteo> getVector() {
+		return vector;
+	}
+	
+	
 	//setter
 	public void setCoordinate(Coordinate coordinate) {
 		this.coordinate = coordinate;
@@ -35,4 +45,8 @@ public class Città {
 		this.nome = nome;
 	}
 	
+	//(Metodo che setta il vettore di informazioniMeteo della città)
+	public void setVector(Vector<InformazioniMeteo> vector) {
+		this.vector = vector;
+	}
 }
