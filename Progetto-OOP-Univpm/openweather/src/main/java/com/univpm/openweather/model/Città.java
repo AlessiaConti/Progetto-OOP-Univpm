@@ -2,21 +2,16 @@ package com.univpm.openweather.model;
 
 public class Città {
 
-	//classe che definisce la città dalla quale si ottengono le previsioni
+	//classe che definisce la citta' dalla quale si ottengono le previsioni
 	
 	//attributi
-	private int lon;
-	private int lat;
+	private Coordinate coordinate; 
 	private int iD;
 	private String nome;
 	
 	//getter
-	public int getLon() {
-		return lon;
-	}
-	
-	public int getLat() {
-		return lat;
+	public Coordinate getCoordinate() {
+		return coordinate;
 	}
 	
 	public int getiD() {
@@ -28,11 +23,8 @@ public class Città {
 	}
 	
 	//setter
-	public void setLon(int lon) {
-		this.lon = lon;
-	
-	public void setLat(int lat) {
-		this.lat = lat;
+	public void setCoordinate(Coordinate coordinate) {
+		this.coordinate = coordinate;
 	}
 	
 	public void setiD(int iD) {
