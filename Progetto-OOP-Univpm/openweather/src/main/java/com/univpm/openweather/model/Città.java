@@ -60,10 +60,10 @@ public class Città {
 	// restituisce la stringa che rappresenta la città
 	@Override
 	public String toString() {
-		String s= "iD: "+this.iD;
+		String s= "iD: "+this.iD+"\n";
 		s+= "Nome: "+this.nome+"\n";
 		s+="Coordinate: "+ this.coordinate+"\n";
-		s+="Informazioni sul meteo: "+toStringInfoMeteo();
+		s+="Informazioni sul meteo: "+toStringInfoMeteo()+"\n";
 		return s;
 	}
 }
