@@ -4,15 +4,22 @@ public class Coordinate {
 	
 	//Classe che rappresenta le coordinate (latitudine e longitudine) di una città
 	
-	private int lon;
-	private int lat;
+	//attributi
+	private double lon;
+	private double lat;
+	
+	//costruttore
+	public Coordinate(double lat, double lon) {
+		this.lat = lat;
+		this.lon = lon;
+	}
 	
 	//getter
-	public int getLon() {
-		return lon;
+	public double getLon() {
+		return this.lon;
 	}
-	public int getLat() {
-		return lat;
+	public double getLat() {
+		return this.lat;
 	}
 	
 	//setter
