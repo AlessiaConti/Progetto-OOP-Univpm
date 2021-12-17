@@ -29,7 +29,6 @@ public class Città {
 		return infoMeteo;
 	}
 	
-	
 	//setter
 	public void setCoordinate(Coordinate coordinate) {
 		this.coordinate = coordinate;
@@ -59,6 +58,7 @@ public class Città {
 
 	// Override del metodo toString 
 	// restituisce la stringa che rappresenta la città
+	@Override
 	public String toString() {
 		String s= "iD: "+this.iD;
 		s+= "Nome: "+this.nome+"\n";
