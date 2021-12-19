@@ -15,10 +15,10 @@ import com.univpm.openweather.model.Coordinate;
 public class weatherController {
 	
 	@Autowired
-	Service service;
+	weatherService service;
 	
-	//Rotta di tipo GET che mostra le previsioni relative a umidità, temperatura effettiva, 
-	//temperatura percepita della città inserita da utente tramite coordinate
+	/**Rotta di tipo GET che mostra le previsioni relative a umidità, temperatura effettiva e
+	 * temperatura percepita della città inserita da utente tramite coordinate*/
 	
 	@GetMapping(value = "/Forecast")
 	public ResponseEntity<Object> getForecast(@RequestParam Coordinate coordinate) {
