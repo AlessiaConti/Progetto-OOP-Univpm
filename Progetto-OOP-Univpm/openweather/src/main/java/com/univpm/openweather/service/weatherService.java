@@ -13,8 +13,8 @@ public interface weatherService {
 	
 	//metodi astratti
 	public abstract JSONObject getMeteoCitta(Coordinate coordinate);
-	public abstract Città getCityInfofromApi(Coordinate coordinate);
+	public abstract Città getInfoCittàdaApi(Coordinate coordinate);
 	public abstract JSONArray getVisibilityfromApi(Coordinate coordinate);
-	public abstract Città getCityWeatherRistrictfromApi(Coordinate coordinate); 
+	public abstract Città getPrevisioniRichieste(Coordinate coordinate); 
 
 }

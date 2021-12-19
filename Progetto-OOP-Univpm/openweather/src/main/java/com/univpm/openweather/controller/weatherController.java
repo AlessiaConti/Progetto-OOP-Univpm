@@ -16,14 +16,14 @@ import com.univpm.openweather.service.weatherService;
 public class weatherController {
 	
 	@Autowired
-	weatherService service;
+	weatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
 	
 	/**Rotta di tipo GET che mostra le previsioni relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite coordinate*/
 	
 	@GetMapping(value = "/getForecast") //chiamo rotta tramite coordinate città
 	public ResponseEntity<Object> getForecast(@RequestParam Coordinate coordinate) {
-		return new ResponseEntity<> (service.toJSON(service.getForecast(service.getJSONForecast(coordinate))), HttpStatus.OK);
+		return new ResponseEntity<> (service.getVisibilityfromApi(coordinate).toString(), HttpStatus.OK);
     }
 	
 

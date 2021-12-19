@@ -44,6 +44,39 @@ public class weatherServiceImpl implements weatherService {
 	}
 	
 	/**
+	 * Questo metodo utilizza getCityWeather per andare a prendere le previsioni sulla visibilità della città richiesta.
+	 * @param è il nome della città di cui si vuole conoscere la visibilità.
+	 * @return restituisce il JSONArray contente la visibilità con la relativa data e ora.
+	 */
+
+	public JSONArray getVisibilityfromApi(String name) {
+	
+		JSONObject object = getCityWeather(name);
+		JSONArray toGive = new JSONArray();
+			
+			JSONArray weatherArray = object.getJSONArray("list");
+			JSONObject support;
+			int visibility;
+			String data;
+			
+			for (int i = 0; i<weatherArray.length(); i++) {
+				
+				support = weatherArray.getJSONObject(i);
+				visibility = (int) support.get("visibility");
+				data = (String) support.get("dt_txt");
+				JSONObject toReturn = new JSONObject();
+				toReturn.put("Visibility", visibility);
+				toReturn.put("Data", data);
+				toGive.put(toReturn);
+				
+			}
+	
+		
+		return toGive;
+		
+	}
+	
+	/**
 	 * Il metodo getPrevisioniRichieste utilizza getMeteoCitta per selezionare solo le info 
 	 *  richieste (umidità, temperatura effettiva, temperatura percepita).
 	 * riceve coord della città di cui si vogliono conoscere le previsioni ristrette
@@ -56,7 +89,7 @@ public class weatherServiceImpl implements weatherService {
 		
 		Città città = new Città();
 		
-		città = getInfoCittafromApi(coordinate);
+		città = getInfoCittadaApi(coordinate);
 		
 		
 		
