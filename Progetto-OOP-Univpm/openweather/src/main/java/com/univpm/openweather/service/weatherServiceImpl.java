@@ -1,6 +1,5 @@
 package com.univpm.openweather.service;
 
-import java.util.Vector;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

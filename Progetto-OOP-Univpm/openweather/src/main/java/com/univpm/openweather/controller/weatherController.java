@@ -23,7 +23,7 @@ public class weatherController {
 	
 	@GetMapping(value = "/getForecast") //chiamo rotta tramite coordinate città
 	public ResponseEntity<Object> getForecast(@RequestParam Coordinate coordinate) {
-		return new ResponseEntity<> (service.getVisibilityfromApi(coordinate).toString(), HttpStatus.OK);
+		return new ResponseEntity<> (service.getPrevisioniRichieste(coordinate).toString(), HttpStatus.OK);
     }
 	
 
