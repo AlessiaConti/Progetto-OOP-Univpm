@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.univpm.openweather.model.Coordinate;
+import com.univpm.openweather.service.weatherService;
 
 
 @Controller 
@@ -22,7 +23,7 @@ public class weatherController {
 	
 	@GetMapping(value = "/Forecast")
 	public ResponseEntity<Object> getForecast(@RequestParam Coordinate coordinate) {
-		return new ResponseEntity<> (service.getForecastfromApi(coordinate).toString(), HttpStatus.OK);
+		return new ResponseEntity<> (service.toJSON(service.getForecast(service.getJSONForecast("London"))), HttpStatus.OK);
     }
 	
 
