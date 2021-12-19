@@ -23,7 +23,7 @@ public class weatherServiceImpl implements weatherService {
 	/**
 	 * Il metodo getMeteoCitta prende le previsioni meteo della città da OpenWeather,
 	 * riceve in input le coordinate della città di cui si vuole conoscere le previsioni meteo
-	 * e restituisce un JSONObject contenente le previsioni meteo complete.
+	 * e restituisce un JSONObject contenente le previsioni meteo COMPLETE.
 	 */
 	
 	public JSONObject getMeteoCitta(Coordinate coordinate) {
@@ -44,29 +44,34 @@ public class weatherServiceImpl implements weatherService {
 	}
 	
 	/**
-	 * Questo metodo utilizza getCityWeather per andare a prendere le previsioni sulla visibilità della città richiesta.
-	 * @param è il nome della città di cui si vuole conoscere la visibilità.
-	 * @return restituisce il JSONArray contente la visibilità con la relativa data e ora.
+	 * Il metodo getPrevisioniRichieste utilizza getMeteoCitta per selezionare solo le info 
+	 *  richieste (umidità, temperatura effettiva, temperatura percepita).
+	 * riceve coord della città di cui si vogliono conoscere le previsioni ristrette
+	 * e restituisce il JSONArray contente SOLO le info richieste.
 	 */
 
-	public JSONArray getVisibilityfromApi(String name) {
+	public JSONArray getPrevisioniRichieste(Coordinate coordinate) {
 	
-		JSONObject object = getCityWeather(name);
+		JSONObject object = getMeteoCitta(coordinate);
 		JSONArray toGive = new JSONArray();
 			
 			JSONArray weatherArray = object.getJSONArray("list");
 			JSONObject support;
-			int visibility;
-			String data;
+			double tempEff; 
+			double tempPer;
+			double umidità; 
 			
 			for (int i = 0; i<weatherArray.length(); i++) {
 				
 				support = weatherArray.getJSONObject(i);
-				visibility = (int) support.get("visibility");
-				data = (String) support.get("dt_txt");
+				tempEff = (double) support.get("temp");
+				tempPer = (double) support.get("feels_like");
+				umidità = (double) support.get("humidity");
+		
 				JSONObject toReturn = new JSONObject();
-				toReturn.put("Visibility", visibility);
-				toReturn.put("Data", data);
+				toReturn.put("temp", tempEff);
+				toReturn.put("feels_like", tempPer);
+				toReturn.put("humidity", umidità);
 				toGive.put(toReturn);
 				
 			}
@@ -75,63 +80,6 @@ public class weatherServiceImpl implements weatherService {
 		return toGive;
 		
 	}
-	
-	/**
-	 * Il metodo getPrevisioniRichieste utilizza getMeteoCitta per selezionare solo le info 
-	 *  richieste (umidità, temperatura effettiva, temperatura percepita).
-	 * riceve coord della città di cui si vogliono conoscere le previsioni ristrette
-	 * e restituisce un oggetto di tipo Città che contiene tutte le info richieste su meteo e città.
-	 */
-	
-	public Città getPrevisioniRichieste(Coordinate coordinate) {
-		
-		JSONObject object = getMeteoCitta(coordinate);
-		
-		Città città = new Città();
-		
-		città = getInfoCittadaApi(coordinate);
-		
-		
-		
-		JSONArray weatherArray = object.getJSONArray("list");
-		JSONObject counter;
-		
-		Vector<InformazioniMeteo> vector = new Vector<InformazioniMeteo>(weatherArray.length());
-		
-		
-		try {
-			
-			
-			for (int i = 0; i<weatherArray.length(); i++) {
-				
-				InformazioniMeteo weather = new InformazioniMeteo();
-				counter = weatherArray.getJSONObject(i);
-				weather.set(counter.getInt("visibility"));
-				weather.setData(counter.getString("dt_txt"));
-				JSONArray arrayW = counter.getJSONArray("weather");
-				JSONObject objectW = arrayW.getJSONObject(0);
-				weather.setDescription(objectW.getString("description"));
-				weather.setMain(objectW.getString("main"));
-				JSONObject objectW2 = counter.getJSONObject("main");
-				
-				weather.setTempEff(objectW2.getDouble("temp")); 
-				weather.setTempPer(objectW2.getDouble("feels_like"));
-				weather.setUmidità(objectW2.getDouble("humidity"));
-				vector.add(weather); 
-		
-			}
-	
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		città.setVector(vector);
-		
-		return città;
-		
-	}
-
 
 
 

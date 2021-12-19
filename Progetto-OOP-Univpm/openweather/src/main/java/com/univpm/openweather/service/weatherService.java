@@ -12,9 +12,9 @@ public interface weatherService {
 	//Questa classe è l'interfaccia che contiene i metodi richiamati dal Controller.
 	
 	//metodi astratti
-	public abstract JSONObject getMeteoCitta(Coordinate coordinate);
-	public abstract Città getInfoCittàdaApi(Coordinate coordinate);
-	public abstract JSONArray getVisibilityfromApi(Coordinate coordinate);
-	public abstract Città getPrevisioniRichieste(Coordinate coordinate); 
-
+	
+	//metodi utili per la rotta /getForecast
+	public abstract JSONObject getMeteoCitta(Coordinate coordinate); //metodo1
+	public abstract JSONArray getPrevisioniRichieste(Coordinate coordinate);//metodo2
+	
 }
