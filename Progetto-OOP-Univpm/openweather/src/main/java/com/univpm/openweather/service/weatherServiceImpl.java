@@ -1,5 +1,5 @@
 package com.univpm.openweather.service;
 
-public interface Service {
+public class weatherServiceImpl {
 
 }
