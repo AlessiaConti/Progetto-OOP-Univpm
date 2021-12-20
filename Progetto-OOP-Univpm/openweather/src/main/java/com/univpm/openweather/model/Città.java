@@ -11,7 +11,7 @@ public class Città {
 	private String nome;
 	private Coordinate coordinate; //attributo di tipo 'coordinate' (lon e lat della città)
 	private Vector<InformazioniMeteo> infoMeteo = new Vector<InformazioniMeteo>(); //vettore che contiene info meteo della città
-	
+
 	//getter
 	public Coordinate getCoordinate() {
 		return coordinate;

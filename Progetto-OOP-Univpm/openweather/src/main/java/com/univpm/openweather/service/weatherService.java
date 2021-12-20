@@ -14,7 +14,6 @@ public interface weatherService {
 	//metodi astratti
 	
 	//metodi utili per la rotta /getForecast
-	public abstract JSONObject getMeteoCitta(Coordinate coordinate); //metodo1
-	public abstract JSONArray getPrevisioniRichieste(Coordinate coordinate);//metodo2
+
 	
 }

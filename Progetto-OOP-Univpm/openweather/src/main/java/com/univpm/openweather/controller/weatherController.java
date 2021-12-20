@@ -21,10 +21,7 @@ public class weatherController {
 	/**Rotta di tipo GET che mostra le previsioni relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite coordinate*/
 	
-	@GetMapping(value = "/getForecast") //chiamo rotta tramite coordinate città
-	public ResponseEntity<Object> getForecast(@RequestParam Coordinate coordinate) {
-		return new ResponseEntity<> (service.getPrevisioniRichieste(coordinate).toString(), HttpStatus.OK);
-    }
+
 	
 
 }
