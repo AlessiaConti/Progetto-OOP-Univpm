@@ -15,10 +15,6 @@ import org.springframework.stereotype.Service;
 
 import com.univpm.openweather.model.*;
 
-import it.univpm.demo_Meteo.MODEL.City;
-import it.univpm.demo_Meteo.MODEL.ForecastData;
-
-
 @Service
 public class weatherServiceImpl implements weatherService {
 
@@ -55,12 +51,10 @@ public class weatherServiceImpl implements weatherService {
 				in.close();
 			}
 
-			//parse JSON Object
-			meteo=(JSONObject) JSONValue.parseWithException(data); 
-			//ho forzato a JSONObject il parseWithException del JSONValue
-
-			//catch annidato delle eccezioni
-		} catch(IOException e) {
+			meteo=(JSONObject) JSONValue.parseWithException(data); //parse JSON Object
+		
+		//catch annidato delle eccezioni	
+		} catch(IOException e) {	  
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,37 +68,17 @@ public class weatherServiceImpl implements weatherService {
 	@Override
 	public Città getMeteo(JSONObject obj) {
 		Città city=new Città();
-		Vector <InformazioniMeteo> InfoMeteo=new Vector<InformazioniMeteo>();
+		Vector <InformazioniMeteo> infoMeteo=new Vector<InformazioniMeteo>();
 
-		JSONObject cityData=(JSONObject)obj.get("city"); //cityData=output del JSONObject
-		JSONArray list= (JSONArray) obj.get("main"); //per leggere lista di info sul meteo
-
-		city.setNome((String) cityData.get("name"));
-		//city.setCountry((String) cityData.get("country"));
-		//city.setId(String.valueOf(cityData.get("id")));
-
-		//scorrimento in "list" (meglio con for-each)
-		for (int j=0; j<list.size(); j++) {
-			JSONObject listElement=(JSONObject)list.get(j);
-			InformazioniMeteo singleForecast= new InformazioniMeteo();
-
-			//JSONArray weather=(JSONArray)listElement.get("main");
-			//JSONObject weather=(JSONObject)((JSONArray)listElement.get("weather"));
-			JSONObject main=(JSONObject)listElement.get("main");
-
-			//inizio a popolare oggetto JSON di variabili prendendole da API call
-
-			singleForecast.setUmidità((double)main.get("humidity"));
-			singleForecast.setTempEff((double)main.get("temp")); //da main prendo temp
-			singleForecast.setTempPer((double)main.get("feels_like"));
-
-			//singleForecast.setMain((String)weather.get("main")); main=null
-			//singleForecast.setDescription((String)weather.get("description")); description=null
-
-			InfoMeteo.add(singleForecast);
-
-		} //fine for
-		city.setInfoMeteo(InfoMeteo);
+		city.setNome((String) obj.get("name"));
+		city.setid(String.valueOf(obj.get("id")));
+		
+		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
+		//infoMeteo.setTempEff((double) mainData.get("temp"));
+		//infoMeteo.setTempPer((double) mainData.get("feels_like"));
+		//infoMeteo.setUmidità((double) mainData.get("humidity"));
+		
+		city.setInfoMeteo(infoMeteo);
 		return city;
 	}
 
@@ -116,9 +90,9 @@ public class weatherServiceImpl implements weatherService {
 
 		//creo JSON Object con 3 parametri { }
 		JSONObject output =new JSONObject();
-		output.put("city", city.getNome());
+		output.put("città", city.getNome());
 		output.put("id", city.getid());
-		output.put("country", city.getPaese());
+		output.put("paese", city.getPaese());
 
 		//creo JSON Array [ ]
 		JSONArray MeteoList= new JSONArray(); //inizializzo JSONArray
@@ -132,7 +106,7 @@ public class weatherServiceImpl implements weatherService {
 
 			MeteoList.add(meteo);
 		}
-		output.put("weather", MeteoList);
+		output.put("current weather", MeteoList);
 		return output;
 	}
 

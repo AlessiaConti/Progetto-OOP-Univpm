@@ -7,7 +7,7 @@ public class Città {
 	//classe che definisce la citta' dalla quale si ottengono le previsioni
 
 	//attributi
-	private int id;
+	private String id;
 	private String nome;
 	private String paese;
 
@@ -19,7 +19,7 @@ public class Città {
 		return coordinate;
 	}
 
-	public int getid() {
+	public String getid() {
 		return id;
 	}
 
@@ -40,8 +40,8 @@ public class Città {
 		this.coordinate = coordinate;
 	}
 
-	public void setid(int id) {
-		this.id = id;
+	public void setid(String string) {
+		this.id = string;
 	}
 
 	public void setNome(String nome) {

@@ -21,7 +21,7 @@ public class weatherController {
 	/**Rotta che mostra le previsioni relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente (per ora tramite nome)*/
 	
-	@RequestMapping(value="/getWeather")                             //chiamando rotta senza parametro vale il valore di default
+	@RequestMapping(value="/getWeather")                //chiamando rotta senza parametro vale il valore di default
 	public ResponseEntity<Object> getWeather(@RequestParam(name="city", defaultValue="London") String city) { 
 		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSON(city))), HttpStatus.OK);
 	} 
