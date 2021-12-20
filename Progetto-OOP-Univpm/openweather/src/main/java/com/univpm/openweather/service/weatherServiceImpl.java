@@ -108,6 +108,34 @@ public class weatherServiceImpl implements weatherService {
 		return city;
 	}
 
+	//metodo per costruire la struttura del JSON da restituire
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public JSONObject toJSON(Città city) {
+
+		//creo JSON Object con 3 parametri { }
+		JSONObject output =new JSONObject();
+		output.put("city", city.getNome());
+		output.put("id", city.getid());
+		output.put("country", city.getPaese());
+
+		//creo JSON Array [ ]
+		JSONArray MeteoList= new JSONArray(); //inizializzo JSONArray
+
+		for (InformazioniMeteo singleForecast : city.getInfoMeteo()) { //scorro JSONArray
+			JSONObject meteo=new JSONObject();
+
+			meteo.put("umidità", singleForecast.getUmidità());
+			meteo.put("temp effettiva", singleForecast.getTempEff());
+			meteo.put("temp percepita", singleForecast.getTempPer());
+
+			MeteoList.add(meteo);
+		}
+		output.put("weather", MeteoList);
+		return output;
+	}
+
 }
 
 
