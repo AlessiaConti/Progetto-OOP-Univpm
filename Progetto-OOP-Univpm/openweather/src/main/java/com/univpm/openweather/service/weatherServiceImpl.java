@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 
 import com.univpm.openweather.model.*;
 
+import it.univpm.demo_Meteo.MODEL.City;
+import it.univpm.demo_Meteo.MODEL.ForecastData;
+
 
 @Service
 public class weatherServiceImpl implements weatherService {
@@ -62,11 +65,49 @@ public class weatherServiceImpl implements weatherService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return meteo;
 	}
-	
-	
+
+
+	//metodo per ottenere i dati meteo che mi interessano
+	@Override
+	public Città getMeteo(JSONObject obj) {
+		Città city=new Città();
+		Vector <InformazioniMeteo> InfoMeteo=new Vector<InformazioniMeteo>();
+
+		JSONObject cityData=(JSONObject)obj.get("city"); //cityData=output del JSONObject
+		JSONArray list= (JSONArray) obj.get("main"); //per leggere lista di info sul meteo
+
+		city.setNome((String) cityData.get("name"));
+		//city.setCountry((String) cityData.get("country"));
+		//city.setId(String.valueOf(cityData.get("id")));
+
+		//scorrimento in "list" (meglio con for-each)
+		for (int j=0; j<list.size(); j++) {
+			JSONObject listElement=(JSONObject)list.get(j);
+			InformazioniMeteo singleForecast= new InformazioniMeteo();
+
+			//JSONArray weather=(JSONArray)listElement.get("main");
+			//JSONObject weather=(JSONObject)((JSONArray)listElement.get("weather"));
+			JSONObject main=(JSONObject)listElement.get("main");
+
+			//inizio a popolare oggetto JSON di variabili prendendole da API call
+
+			singleForecast.setUmidità((double)main.get("humidity"));
+			singleForecast.setTempEff((double)main.get("temp")); //da main prendo temp
+			singleForecast.setTempPer((double)main.get("feels_like"));
+
+			//singleForecast.setMain((String)weather.get("main")); main=null
+			//singleForecast.setDescription((String)weather.get("description")); description=null
+
+			InfoMeteo.add(singleForecast);
+
+		} //fine for
+		city.setInfoMeteo(InfoMeteo);
+		return city;
+	}
+
 }
 
 
