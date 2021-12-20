@@ -16,10 +16,15 @@ import com.univpm.openweather.service.weatherService;
 public class weatherController {
 	
 	@Autowired
-	weatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
+	private weatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
 	
-	/**Rotta di tipo GET che mostra le previsioni relative a umidità, temperatura effettiva e
+	/**Rotta che mostra le previsioni relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite coordinate*/
+	
+	@RequestMapping(value="/getWeather")                             //chiamando rotta senza parametro vale il valore di default
+	public ResponseEntity<Object> getWeather(@RequestParam(name="city", defaultValue="London") String city) { 
+		return new ResponseEntity<> (weatherService.toJSON(weatherService.getForecast(weatherService.getJSONForecast(city))), HttpStatus.OK);
+	} 
 	
 
 	
