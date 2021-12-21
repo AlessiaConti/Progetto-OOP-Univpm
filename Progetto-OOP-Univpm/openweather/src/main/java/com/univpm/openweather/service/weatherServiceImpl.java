@@ -23,8 +23,9 @@ public class weatherServiceImpl implements weatherService {
 
 	//apyKey=chiave necessaria per ottenere informazioni da OpenWeather
 	private String apiKey= "be1788b24b6c02e4146b4b4cd3eb9058" ;
-	//url di chiamata API per nome città (?q=)
-	private String url="http://api.openweathermap.org/data/2.5/weather?q=";
+	//url di chiamata API per coord
+	//api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+	private String url="http://api.openweathermap.org/data/2.5/weather?";
 
 	//ora implemento i metodi che nell'interfaccia erano astratti
 
@@ -32,12 +33,12 @@ public class weatherServiceImpl implements weatherService {
 	 * metodo per LEGGERE il file JSON ottenuto dalla chiamata API 
 	 */
 	@Override
-	public JSONObject readJSON(String city) {
+	public JSONObject readJSON(double lat, double lon) {
 		JSONObject meteo=null;
 
 		try { 
 			//apro connessione url: costruisco l'URL da cui poi leggerò file in uscita
-			URLConnection openConnection= new URL (url+city+ "&appid="+apiKey).openConnection();
+			URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
 			//metto il file generato da url su un input stream
 			InputStream in= openConnection.getInputStream();
 
