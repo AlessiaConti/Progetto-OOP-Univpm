@@ -7,10 +7,15 @@ public interface weatherService {
 	
 	//Questa è l'interfaccia che contiene i metodi richiamati dal Controller.
 	
-	//metodi (astratti) utili per la rotta /getWeather
+	//metodi astratti
+	
+	//metodi utili per la rotta /getWeather
 	public abstract JSONObject readJSON(double lat, double lon);
 	public abstract Città getMeteo(JSONObject obj);
 	public abstract JSONObject toJSON(Città city);
+	
+	//metodi utili per la rotta /save
+	public abstract String saveToFile(double lat, double lon);
 	
 
 	
