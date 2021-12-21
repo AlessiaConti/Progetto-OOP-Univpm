@@ -80,9 +80,10 @@ public class weatherServiceImpl implements weatherService {
 
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
 		
-		infoMeteo.setTempEff((double) mainData.get("temp"));
-		//infoMeteo.setTempPer((double) mainData.get("feels_like"));
 		//infoMeteo.setUmidità((double) mainData.get("humidity"));
+		infoMeteo.setTempEff((double) mainData.get("temp"));
+		infoMeteo.setTempPer((double) mainData.get("feels_like"));
+		
 		
 		city.setInfoMeteo(infoMeteo);
 		return city;
@@ -108,8 +109,8 @@ public class weatherServiceImpl implements weatherService {
 			//JSONObject meteo=new JSONObject();
 			
 			ob.put("umidità", infoMeteo.getUmidità());
-			//ob.put("effettiva", infoMeteo.getTempEff());
-			//ob.put("percepita", infoMeteo.getTempPer());
+			ob.put("temp effettiva", infoMeteo.getTempEff());
+			ob.put("temp percepita", infoMeteo.getTempPer());
 			
 			//forecast.put("main", singleForecast.getMain()); //null
 			//forecast.put("description", singleForecast.getDescription()); //null
