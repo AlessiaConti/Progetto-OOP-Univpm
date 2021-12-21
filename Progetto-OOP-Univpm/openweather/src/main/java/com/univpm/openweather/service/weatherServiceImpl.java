@@ -6,8 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Map;
-import java.util.Vector;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -30,7 +28,7 @@ public class weatherServiceImpl implements weatherService {
 	//ora implemento i metodi che nell'interfaccia erano astratti
 
 	/** 
-	 * metodo per LEGGERE il file JSON ottenuto dalla chiamata API 
+	 * readJSON() = metodo per LEGGERE il file JSON ottenuto dalla chiamata API 
 	 */
 	@Override
 	public JSONObject readJSON(double lat, double lon) {
@@ -70,8 +68,8 @@ public class weatherServiceImpl implements weatherService {
 
 
 	/**
-	 * metodo per OTTENERE i dati meteo che mi interessano
-	*/
+	 * getMeteo()=metodo per OTTENERE i dati meteo che mi interessano
+	 */
 	@Override
 	public Città getMeteo(JSONObject obj) {
 		Città city=new Città();
@@ -81,18 +79,17 @@ public class weatherServiceImpl implements weatherService {
 		city.setid(String.valueOf(obj.get("id")));
 
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
-		
+
 		//infoMeteo.setUmidità((double) mainData.get("humidity"));
 		infoMeteo.setTempEff((double) mainData.get("temp"));
 		infoMeteo.setTempPer((double) mainData.get("feels_like"));
-		
-		
+
 		city.setInfoMeteo(infoMeteo);
 		return city;
 	}
 
 	/**
-	 * metodo per costruire la struttura del JSON da restituire
+	 * toJSON()= metodo per costruire la struttura del JSON da restituire
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -101,34 +98,20 @@ public class weatherServiceImpl implements weatherService {
 		JSONObject output =new JSONObject();
 		output.put("city", city.getNome());
 		output.put("id", city.getid());
-		
+
 		//creo JSON Array [ ]
 		JSONArray meteoList= new JSONArray(); //inizializzo JSONArray
 		JSONObject ob=new JSONObject();
 		InformazioniMeteo infoMeteo=new InformazioniMeteo();
-		
-		//for (InformazioniMeteo x : city.getVector()) { //scorro JSONArray
-			//JSONObject meteo=new JSONObject();
-			
-			ob.put("umidità", infoMeteo.getUmidità());
-			ob.put("temp effettiva", infoMeteo.getTempEff());
-			ob.put("temp percepita", infoMeteo.getTempPer());
-			
-			//forecast.put("main", singleForecast.getMain()); //null
-			//forecast.put("description", singleForecast.getDescription()); //null
-			
-			meteoList.add(ob);
-		
+
+		ob.put("umidità", infoMeteo.getUmidità());
+		ob.put("temp effettiva", infoMeteo.getTempEff());
+		ob.put("temp percepita", infoMeteo.getTempPer());
+
+		meteoList.add(ob);
+
 		output.put("info meteo", meteoList);
 		return output;
 	}
 
 }
-
-
-
-
-
-
-
-
