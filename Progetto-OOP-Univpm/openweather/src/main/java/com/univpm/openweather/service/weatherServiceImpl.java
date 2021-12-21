@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Map;
 import java.util.Vector;
 
 import org.json.simple.JSONArray;
@@ -78,10 +79,11 @@ public class weatherServiceImpl implements weatherService {
 		city.setid(String.valueOf(obj.get("id")));
 
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
-		//infoMeteo.setTempEff((double) mainData.get("temp"));
+		
+		infoMeteo.setTempEff((double) mainData.get("temp"));
 		//infoMeteo.setTempPer((double) mainData.get("feels_like"));
 		//infoMeteo.setUmidità((double) mainData.get("humidity"));
-
+		
 		city.setInfoMeteo(infoMeteo);
 		return city;
 	}
@@ -98,22 +100,23 @@ public class weatherServiceImpl implements weatherService {
 		output.put("id", city.getid());
 		
 		//creo JSON Array [ ]
-		JSONArray forecastList= new JSONArray(); //inizializzo JSONArray
+		JSONArray meteoList= new JSONArray(); //inizializzo JSONArray
+		JSONObject ob=new JSONObject();
+		InformazioniMeteo infoMeteo=new InformazioniMeteo();
 		
-		 //scorro JSONArray
-			//JSONObject forecast=new JSONObject();
+		//for (InformazioniMeteo x : city.getVector()) { //scorro JSONArray
+			//JSONObject meteo=new JSONObject();
 			
-		//output.put("temp", forecastList.getTempEff());
-		//output.put("feels_like", forecastList.getTempPer());
-		//output.put("humidity", forecastList.getUmidità());
-			
+			ob.put("umidità", infoMeteo.getUmidità());
+			//ob.put("effettiva", infoMeteo.getTempEff());
+			//ob.put("percepita", infoMeteo.getTempPer());
 			
 			//forecast.put("main", singleForecast.getMain()); //null
 			//forecast.put("description", singleForecast.getDescription()); //null
 			
-			//forecastList.add(forecast);
+			meteoList.add(ob);
 		
-		output.put("info meteo", forecastList);
+		output.put("info meteo", meteoList);
 		return output;
 	}
 
