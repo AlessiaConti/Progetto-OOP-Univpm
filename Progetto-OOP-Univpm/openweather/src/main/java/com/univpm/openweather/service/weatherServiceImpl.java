@@ -68,7 +68,7 @@ public class weatherServiceImpl implements weatherService {
 
 
 	/**
-	 * metodo per ottenere i dati meteo che mi interessano
+	 * metodo per OTTENERE i dati meteo che mi interessano
 	*/
 	@Override
 	public Città getMeteo(JSONObject obj) {
