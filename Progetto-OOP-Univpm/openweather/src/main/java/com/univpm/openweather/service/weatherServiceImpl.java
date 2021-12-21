@@ -96,7 +96,7 @@ public class weatherServiceImpl implements weatherService {
 	public JSONObject toJSON(Città city) {
 		//creo JSON Object con 2 parametri { }
 		JSONObject output =new JSONObject();
-		output.put("city", city.getNome());
+		output.put("Città", city.getNome());
 		output.put("id", city.getid());
 
 		//creo JSON Array [ ]
@@ -110,7 +110,7 @@ public class weatherServiceImpl implements weatherService {
 
 		meteoList.add(ob);
 
-		output.put("info meteo", meteoList);
+		output.put("Info meteo", meteoList);
 		return output;
 	}
 
