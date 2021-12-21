@@ -35,7 +35,7 @@ public class weatherServiceImpl implements weatherService {
 		JSONObject meteo=null;
 
 		try { 
-			//apro connessione url: costruisco l'URL da cui poi leggerò file in uscita
+			//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
 			URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
 			//metto il file generato da url su un input stream
 			InputStream in= openConnection.getInputStream();
@@ -53,8 +53,8 @@ public class weatherServiceImpl implements weatherService {
 			} finally {
 				in.close();
 			}
-
-			meteo=(JSONObject) JSONValue.parseWithException(data); //parse JSON Object
+			//effettuo il parsing in JSON Object
+			meteo=(JSONObject) JSONValue.parseWithException(data); 
 
 			//catch annidato delle eccezioni	
 		} catch(IOException e) {	  
@@ -80,7 +80,7 @@ public class weatherServiceImpl implements weatherService {
 
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
 
-		//infoMeteo.setUmidità((double) mainData.get("humidity"));
+		infoMeteo.setUmidità((long) mainData.get("humidity"));
 		infoMeteo.setTempEff((double) mainData.get("temp"));
 		infoMeteo.setTempPer((double) mainData.get("feels_like"));
 
@@ -104,9 +104,9 @@ public class weatherServiceImpl implements weatherService {
 		JSONObject ob=new JSONObject();
 		InformazioniMeteo infoMeteo=new InformazioniMeteo();
 
-		ob.put("umidità", infoMeteo.getUmidità());
-		ob.put("temp effettiva", infoMeteo.getTempEff());
-		ob.put("temp percepita", infoMeteo.getTempPer());
+		ob.put( "umidità", (city.getInfoMeteo()).getUmidità() );
+		ob.put( "temp effettiva", (city.getInfoMeteo()).getTempEff() );
+		ob.put( "temp percepita", (city.getInfoMeteo()).getTempPer() );
 
 		meteoList.add(ob);
 

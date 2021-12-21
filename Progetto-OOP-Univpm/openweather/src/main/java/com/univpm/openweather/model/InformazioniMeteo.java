@@ -7,7 +7,7 @@ public class InformazioniMeteo {
 	//attributi
 	private double tempEff; //data in Kelvin
 	private double tempPer;
-	private double umidità; //data in %
+	private long umidità; //data in %
 	
 	//getter 
 	public double getTempEff() {
@@ -16,7 +16,7 @@ public class InformazioniMeteo {
 	public double getTempPer() {
 		return tempPer;
 	}
-	public double getUmidità() {
+	public long getUmidità() {
 		return umidità;
 	}
 	
@@ -27,7 +27,7 @@ public class InformazioniMeteo {
 	public void setTempPer(double tempPer) {
 		this.tempPer = tempPer;
 	}
-	public void setUmidità(double umidità) {
+	public void setUmidità(long umidità) {
 		this.umidità = umidità;
 	}
 	
