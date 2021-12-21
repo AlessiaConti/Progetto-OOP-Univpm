@@ -12,7 +12,7 @@ public class Città {
 	private String paese;
 
 	private Coordinate coordinate; //attributo di tipo 'coordinate' (lon e lat della città)
-	private Vector<InformazioniMeteo> infoMeteo = new Vector<InformazioniMeteo>(); //vettore che contiene info meteo della città
+	private InformazioniMeteo infoMeteo; //oggetto che contiene info meteo della città
 
 	//getter
 	public Coordinate getCoordinate() {
@@ -31,7 +31,7 @@ public class Città {
 		return paese;
 	}
 
-	public Vector<InformazioniMeteo> getInfoMeteo() {
+	public InformazioniMeteo getInfoMeteo() {
 		return infoMeteo;
 	}
 
@@ -51,28 +51,11 @@ public class Città {
 	public void setPaese(String paese) {
 		this.paese = paese;
 	}
-	public void setInfoMeteo(Vector<InformazioniMeteo> infoMeteo) {
+	public void setInfoMeteo(InformazioniMeteo infoMeteo) {
 		this.infoMeteo = infoMeteo;
 	}
 
-	//metodi toString
+	// TODO Override del metodo toString 
+	
 
-	// metodo che scrive il vettore infoMeteo come una stringa
-	public String toStringInfoMeteo() {
-		String s= ""; //inizializzo stringa
-		for (int i=0; i<infoMeteo.size(); i++)
-			s += infoMeteo.get(i).toString(); //richiama il metodo toString della classe 'InformazioniMeteo'
-		return s;
-	}
-
-	// Override del metodo toString 
-	// restituisce la stringa che rappresenta la città
-	@Override
-	public String toString() {
-		String s= "id: "+this.id+"\n";
-		s+= "Nome: "+this.nome+"\n";
-		s+="Coordinate: "+ this.coordinate+"\n";
-		s+="Informazioni sul meteo: "+toStringInfoMeteo()+"\n";
-		return s;
-	}
 }

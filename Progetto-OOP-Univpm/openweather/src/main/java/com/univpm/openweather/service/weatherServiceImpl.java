@@ -26,7 +26,9 @@ public class weatherServiceImpl implements weatherService {
 
 	//ora implemento i metodi che nell'interfaccia erano astratti
 
-	//metodo per LEGGERE il file JSON ottenuto dalla chiamata API 
+	/** 
+	 * metodo per LEGGERE il file JSON ottenuto dalla chiamata API 
+	 */
 	@Override
 	public JSONObject readJSON(String city) {
 		JSONObject meteo=null;
@@ -52,8 +54,8 @@ public class weatherServiceImpl implements weatherService {
 			}
 
 			meteo=(JSONObject) JSONValue.parseWithException(data); //parse JSON Object
-		
-		//catch annidato delle eccezioni	
+
+			//catch annidato delle eccezioni	
 		} catch(IOException e) {	  
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -64,49 +66,54 @@ public class weatherServiceImpl implements weatherService {
 	}
 
 
-	//metodo per ottenere i dati meteo che mi interessano
+	/**
+	 * metodo per ottenere i dati meteo che mi interessano
+	*/
 	@Override
 	public Città getMeteo(JSONObject obj) {
 		Città city=new Città();
-		Vector <InformazioniMeteo> infoMeteo=new Vector<InformazioniMeteo>();
+		InformazioniMeteo infoMeteo=new InformazioniMeteo();
 
 		city.setNome((String) obj.get("name"));
 		city.setid(String.valueOf(obj.get("id")));
-		
+
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
 		//infoMeteo.setTempEff((double) mainData.get("temp"));
 		//infoMeteo.setTempPer((double) mainData.get("feels_like"));
 		//infoMeteo.setUmidità((double) mainData.get("humidity"));
-		
+
 		city.setInfoMeteo(infoMeteo);
 		return city;
 	}
 
-	//metodo per costruire la struttura del JSON da restituire
-
+	/**
+	 * metodo per costruire la struttura del JSON da restituire
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public JSONObject toJSON(Città city) {
-
-		//creo JSON Object con 3 parametri { }
+		//creo JSON Object con 2 parametri { }
 		JSONObject output =new JSONObject();
-		output.put("città", city.getNome());
+		output.put("city", city.getNome());
 		output.put("id", city.getid());
-		output.put("paese", city.getPaese());
-
+		
 		//creo JSON Array [ ]
-		JSONArray MeteoList= new JSONArray(); //inizializzo JSONArray
-
-		for (InformazioniMeteo singleForecast : city.getInfoMeteo()) { //scorro JSONArray
-			JSONObject meteo=new JSONObject();
-
-			meteo.put("umidità", singleForecast.getUmidità());
-			meteo.put("temp effettiva", singleForecast.getTempEff());
-			meteo.put("temp percepita", singleForecast.getTempPer());
-
-			MeteoList.add(meteo);
-		}
-		output.put("current weather", MeteoList);
+		JSONArray forecastList= new JSONArray(); //inizializzo JSONArray
+		
+		 //scorro JSONArray
+			//JSONObject forecast=new JSONObject();
+			
+		//output.put("temp", forecastList.getTempEff());
+		//output.put("feels_like", forecastList.getTempPer());
+		//output.put("humidity", forecastList.getUmidità());
+			
+			
+			//forecast.put("main", singleForecast.getMain()); //null
+			//forecast.put("description", singleForecast.getDescription()); //null
+			
+			//forecastList.add(forecast);
+		
+		output.put("info meteo", forecastList);
 		return output;
 	}
 

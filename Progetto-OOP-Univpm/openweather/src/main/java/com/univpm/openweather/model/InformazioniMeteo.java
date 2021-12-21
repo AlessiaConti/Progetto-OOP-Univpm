@@ -31,14 +31,7 @@ public class InformazioniMeteo {
 		this.umidità = umidità;
 	}
 	
-	//Override del metodo toString
-	// Restituisce stringa che rappresenta le info sul meteo della città
-	@Override
-	public String toString() {
-		String s="Temperatura effettiva: " + this.tempEff+"\n";
-		s+= "Temperatura percepita: "+ this.tempPer+"\n";
-		s+="Umidità: "+ this.umidità+"\n";
-		return s;
-	}
+	// TODO Override del metodo toString
+	
 	
 }
