@@ -23,6 +23,7 @@ public class weatherServiceImpl implements weatherService {
 
 	//apyKey=chiave necessaria per ottenere informazioni da OpenWeather
 	private String apiKey= "be1788b24b6c02e4146b4b4cd3eb9058" ;
+	//url di chiamata API per nome città (?q=)
 	private String url="http://api.openweathermap.org/data/2.5/weather?q=";
 
 	//ora implemento i metodi che nell'interfaccia erano astratti
