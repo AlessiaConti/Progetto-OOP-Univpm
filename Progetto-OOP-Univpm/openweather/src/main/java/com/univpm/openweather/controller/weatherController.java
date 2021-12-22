@@ -19,8 +19,10 @@ public class weatherController {
 	private weatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
 
 
-	/**Rotta che mostra le previsioni relative a umidità, temperatura effettiva e
-	 * temperatura percepita della città inserita da utente tramite coordinate*/
+	/**
+	 * Rotta che mostra le previsioni relative a umidità, temperatura effettiva e
+	 * temperatura percepita della città inserita da utente tramite coordinate
+	 * */
 	@RequestMapping(value="/getWeather")                
 	public ResponseEntity<Object> getWeather(@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) { 
 		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSON(lat,lon))), HttpStatus.OK);
