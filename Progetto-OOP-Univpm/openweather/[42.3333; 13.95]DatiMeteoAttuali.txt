@@ -1,0 +1,1 @@
+{"Città":"Provincia di Pescara","id":"3171163","Info meteo":[{"umidità":61,"temp percepita":280.3,"temp effettiva":280.3}]}

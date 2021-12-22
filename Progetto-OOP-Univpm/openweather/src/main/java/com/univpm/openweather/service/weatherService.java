@@ -14,7 +14,7 @@ public interface weatherService {
 	public abstract Città getMeteo(JSONObject obj);
 	public abstract JSONObject toJSON(Città city);
 	
-	//metodi utili per la rotta /save
+	//metodi utili per la rotta /saveToFile
 	public abstract String saveToFile(double lat, double lon);
 	
 

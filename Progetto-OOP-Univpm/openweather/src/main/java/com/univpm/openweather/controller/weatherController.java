@@ -28,7 +28,7 @@ public class weatherController {
 	
 	/**
 	 * Rotta che salva in un file le info meteo della città inserita dall'utente
-	 * tramite coordinate, e restituisce il path dove viene salvato il file.
+	 * tramite coord, e restituisce il path dove viene salvato il file.
 	 * IOException se si verificano errori di output su file.
 	 */
 	
