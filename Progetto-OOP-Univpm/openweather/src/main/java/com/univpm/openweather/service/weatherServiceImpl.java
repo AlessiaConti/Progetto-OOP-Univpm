@@ -117,46 +117,6 @@ public class weatherServiceImpl implements weatherService {
 		return output;
 	}
 
-	/**
-	 * Questo metodo richiama i metodi precedenti readJSON(), getMeteo() 
-	 * e toJSON() e serve per salvare le info meteo richieste dall'utente 
-	 * inserendo coordinate della città di interesse.
-	 * Restituisce una stringa contenente il path del file salvato.
-	 */
-	public String saveToFile(double lat, double lon) {
-		//path dove verrà creato il file
-		String path = System.getProperty("user.dir") + "/[" +lat+"; "+lon+ "]DatiMeteoAttuali.txt";
-		//TODO nel nome del File al posto delle coordinate andrebbe messo il nome della città
-
-		File file = new File(path);
-
-		//prendo i dati meteo usando i metodi precedenti
-		JSONObject obj1 = new JSONObject();
-
-		obj1 = readJSON(lat,lon);
-
-		Città city=getMeteo(obj1);
-
-		JSONObject obj2 = toJSON(city);
-
-		try{
-			if(!file.exists()) {
-				file.createNewFile();
-			}
-
-			FileWriter fileWriter = new FileWriter(file, true);
-
-			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-			bufferedWriter.write(obj2.toString());
-			bufferedWriter.write("\n");
-
-			bufferedWriter.close();
-
-		} catch(IOException e) {
-			System.out.println(e);
-		}
-
-		return "Il file è stato salvato in " + path;	
-	}
+	
 
 }

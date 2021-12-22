@@ -34,11 +34,6 @@ public class weatherController {
 	 * tramite coord, e restituisce il path dove viene salvato il file.
 	 * IOException se si verificano errori di output su file.
 	 */
-	@RequestMapping(value="/saveToFile")
-	public ResponseEntity<Object> save (@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) throws IOException {
-		String path = service.saveToFile(lat,lon);
-		return new ResponseEntity<> (path, HttpStatus.OK);
-	}
 
 
 
