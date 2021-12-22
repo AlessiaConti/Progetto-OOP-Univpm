@@ -9,9 +9,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -130,16 +127,16 @@ public class weatherServiceImpl implements weatherService {
 		//path dove verrà creato il file
 		String path = System.getProperty("user.dir") + "/[" +lat+"; "+lon+ "]DatiMeteoAttuali.txt";
 		//TODO nel nome del File al posto delle coordinate andrebbe messo il nome della città
-		
+
 		File file = new File(path);
-		
+
 		//prendo i dati meteo usando i metodi precedenti
 		JSONObject obj1 = new JSONObject();
-		
+
 		obj1 = readJSON(lat,lon);
-		
+
 		Città city=getMeteo(obj1);
-		
+
 		JSONObject obj2 = toJSON(city);
 
 		try{
@@ -159,7 +156,7 @@ public class weatherServiceImpl implements weatherService {
 			System.out.println(e);
 		}
 
-	return "Il file è stato salvato in " + path;	
-}
+		return "Il file è stato salvato in " + path;	
+	}
 
 }
