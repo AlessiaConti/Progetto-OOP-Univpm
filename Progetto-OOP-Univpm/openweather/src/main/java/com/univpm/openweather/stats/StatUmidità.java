@@ -1,5 +1,6 @@
 package com.univpm.openweather.stats;
 
+import org.json.JSONObject;
 import org.json.simple.JSONArray;
 
 public class StatUmidità {
