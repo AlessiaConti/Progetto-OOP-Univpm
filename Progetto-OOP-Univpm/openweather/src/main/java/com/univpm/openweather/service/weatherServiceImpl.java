@@ -24,7 +24,7 @@ public class weatherServiceImpl implements weatherService {
 
 	//apyKey=chiave necessaria per ottenere informazioni da OpenWeather
 	private String apiKey= "be1788b24b6c02e4146b4b4cd3eb9058" ;
-	//url di chiamata API per coord
+	//url di chiamata API tramite coordinate
 	//api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 	private String url="http://api.openweathermap.org/data/2.5/weather?";
 
@@ -92,7 +92,7 @@ public class weatherServiceImpl implements weatherService {
 	}
 
 	/**
-	 * toJSON()= metodo per costruire la struttura del JSON da restituire
+	 * toJSON()= metodo per costruire la struttura del JSON da restituire all'utente
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
