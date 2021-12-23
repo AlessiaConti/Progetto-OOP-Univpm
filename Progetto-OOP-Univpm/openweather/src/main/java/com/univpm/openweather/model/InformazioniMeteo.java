@@ -8,6 +8,7 @@ public class InformazioniMeteo {
 	private double tempEff; //data in Kelvin
 	private double tempPer;
 	private long umidità; //data in %
+	private String data; //espressa con sistema 'unix, UTC'
 	
 	//getter 
 	public double getTempEff() {
@@ -19,6 +20,9 @@ public class InformazioniMeteo {
 	public long getUmidità() {
 		return umidità;
 	}
+	public String getData() {
+		return data;
+	}
 	
 	//setter
 	public void setTempEff(double tempEff) { 
@@ -29,6 +33,9 @@ public class InformazioniMeteo {
 	}
 	public void setUmidità(long umidità) {
 		this.umidità = umidità;
+	}
+	public void setData(String data) {
+		this.data = data;
 	}
 	
 	// TODO Override del metodo toString
