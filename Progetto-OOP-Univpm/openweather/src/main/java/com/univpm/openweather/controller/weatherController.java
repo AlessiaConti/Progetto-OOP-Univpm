@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONObject;
-import org.json.simple.JSONArray;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.univpm.openweather.exception.CityNotFoundException;
 import com.univpm.openweather.exception.EmptyStringException;
 import com.univpm.openweather.exception.WrongPeriodException;
-import com.univpm.openweather.service.weatherService;
 
+import com.univpm.openweather.service.weatherService;
+import com.univpm.openweather.service.statsService;
 
 @Controller 
 public class weatherController {
 
 	@Autowired
 	private weatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
+	
 
 
 	/**
@@ -35,13 +37,23 @@ public class weatherController {
 	public ResponseEntity<Object> getWeather(@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) { 
 		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSON(lat,lon))), HttpStatus.OK);
 	} 
-
+	
+	/**
+	 * Rotta che salva in un file le info meteo della città inserita dall'utente
+	 * tramite coord, e restituisce il path dove viene salvato il file.
+	 * IOException se si verificano errori di output su file.
+	 */
+	@RequestMapping(value="/saveToFile")
+	public ResponseEntity<Object> save (@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) throws IOException {
+		String path = service.saveToFile(lat,lon);
+		return new ResponseEntity<> (path, HttpStatus.OK);
+	}
 
 	/**
 	 * Rotta di tipo POST che filtra in base alla periodicità specificata da utente 
 	 * (giornaliera, settimanale, mensile) le statistiche riguardanti umidità, 
 	 * temp effettiva e percepita
-	 * Le città ammesse sono solo Ancona,
+	 * Le città ammesse sono solo Ancona e Roma per ora
 	 * 
 	 * L'utente deve inserire un JSONObject di questo tipo:
 	 * {
@@ -49,6 +61,9 @@ public class weatherController {
      *        {
      *          "name": "Ancona"
      *        },
+     *         {
+     *          "name": "Roma"
+     *        }
      *      ],
      *     "period": "giornaliera"
      *  }
@@ -64,7 +79,7 @@ public class weatherController {
     		throws EmptyStringException, CityNotFoundException, WrongPeriodException, IOException {
 		
 		JSONObject object = new JSONObject(body);
-         JSONArray array = new JSONArray();
+        JSONArray array = new JSONArray();
 
         array = object.getJSONArray("città");
         
@@ -79,7 +94,7 @@ public class weatherController {
         String period = object.getString("periodicità");
         
         try {
-        	return new ResponseEntity<>(service.readVisibilityHistory(cities,period).toString(),HttpStatus.OK);
+        	return new ResponseEntity<>(statsService.LeggiStoricoUmidita(cities,period).toString(),HttpStatus.OK);
         }
         catch (EmptyStringException e) {
 			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);

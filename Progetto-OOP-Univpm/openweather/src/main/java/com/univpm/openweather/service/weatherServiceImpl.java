@@ -10,7 +10,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.text.html.HTMLDocument.Iterator;
 
@@ -90,6 +92,10 @@ public class weatherServiceImpl implements weatherService {
 		city.setid(String.valueOf(obj.get("id")));
 		
 		infoMeteo.setData(String.valueOf (obj.get("dt"))); //per prendere la data
+		//ora converto la data dal formato Unix a UTC
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		String today = date.format(new Date());
+		infoMeteo.setData(today);
 
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
 
