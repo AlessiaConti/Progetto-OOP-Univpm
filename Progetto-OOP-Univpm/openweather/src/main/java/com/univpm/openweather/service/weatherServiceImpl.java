@@ -41,7 +41,8 @@ public class weatherServiceImpl implements weatherService {
 	//ora implemento i metodi che nell'interfaccia erano astratti
 
 	/** 
-	 * readJSON() = metodo per LEGGERE il file JSON ottenuto dalla chiamata API 
+	 * readJSON() = metodo per LEGGERE il file JSON ottenuto 
+	 *                    dalla chiamata API passando le COORDINATE
 	 */
 	@Override
 	public JSONObject readJSON(double lat, double lon) {
@@ -50,6 +51,46 @@ public class weatherServiceImpl implements weatherService {
 		try { 
 			//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
 			URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
+			//metto il file generato da url su un input stream
+			InputStream in= openConnection.getInputStream();
+
+			String data= " ";
+			String line= " ";
+
+			try {
+				InputStreamReader inR= new InputStreamReader(in);
+				BufferedReader buf= new BufferedReader(inR);
+
+				while((line= buf.readLine() ) != null) {
+					data+=line;
+				} 
+			} finally {
+				in.close();
+			}
+			//effettuo il parsing in JSON Object
+			meteo=(JSONObject) JSONValue.parseWithException(data); 
+
+			//catch annidato delle eccezioni	
+		} catch(IOException e) {	  
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return meteo;
+	}
+	
+	/** 
+	 * readJSON() = metodo per LEGGERE il file JSON ottenuto 
+	 *                    dalla chiamata API passando il NOME della città
+	 */
+	@Override
+	public JSONObject readJSONbyName(String city) {
+		JSONObject meteo=null;
+
+		try { 
+			//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
+			URLConnection openConnection= new URL (url+"q="+city+ "&appid="+apiKey).openConnection();
 			//metto il file generato da url su un input stream
 			InputStream in= openConnection.getInputStream();
 
@@ -99,7 +140,7 @@ public class weatherServiceImpl implements weatherService {
 
 		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
 
-		infoMeteo.setUmidità((long) mainData.get("humidity"));
+		infoMeteo.setUmidita((long) mainData.get("humidity"));
 		infoMeteo.setTempEff((double) mainData.get("temp"));
 		infoMeteo.setTempPer((double) mainData.get("feels_like"));
 
@@ -125,7 +166,7 @@ public class weatherServiceImpl implements weatherService {
 		JSONObject ob=new JSONObject();
 		InformazioniMeteo infoMeteo=new InformazioniMeteo();
 
-		ob.put( "umidità", (city.getInfoMeteo()).getUmidità() );
+		ob.put( "umidità", (city.getInfoMeteo()).getUmidita() );
 		ob.put( "temp effettiva", (city.getInfoMeteo()).getTempEff() );
 		ob.put( "temp percepita", (city.getInfoMeteo()).getTempPer() );
 
@@ -142,17 +183,16 @@ public class weatherServiceImpl implements weatherService {
 	 * inserendo coordinate della città di interesse.
 	 * Restituisce una stringa contenente il path del file salvato.
 	 */
-	public String saveToFile(double lat, double lon) {
+	public String saveToFile(String nome) {
 		//path dove verrà creato il file
-		String path = System.getProperty("user.dir") + "/[" +lat+"; "+lon+ "]DatiMeteoAttuali.txt";
-		//TODO nel nome del File al posto delle coordinate andrebbe messo il nome della città
+		String path = System.getProperty("user.dir") + "/[" +nome+ "]DatiMeteoAttuali.txt";
 
 		File file = new File(path);
 
 		//prendo i dati meteo usando i metodi precedenti
 		JSONObject obj1 = new JSONObject();
 
-		obj1 = readJSON(lat,lon);
+		obj1 = readJSONbyName(nome);
 
 		Città city=getMeteo(obj1);
 
@@ -178,6 +218,7 @@ public class weatherServiceImpl implements weatherService {
 		return "Il file è stato salvato in " + path;	
 	}
 
+/**************************************************************************************/
 	/**
 	 * Questo metodo viene richiamato da LeggiStoricoUmidita().
 	 * Si occupa della lettura dello storico della città passata in ingresso. 

@@ -1,6 +1,6 @@
 package com.univpm.openweather.stats;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import com.univpm.openweather.model.Città;
 import com.univpm.openweather.service.weatherServiceImpl;
@@ -14,48 +14,49 @@ public class Statistiche {
 	 * @return JSONObject contenente il nome della città e le relative medie
 	 */
 
-	public JSONObject todayAverage(String name) {
+	public JSONObject medieGiornaliere(String name) {
 
-		Città city = new Città();
-		city = service.getMeteo(JSONObject obj);
+		Città city = new Città(name);
+		JSONObject obj=new JSONObject();
+		city = service.getMeteo(obj);
 
-		double temp_max_ave = 0;
-		double temp_min_ave = 0;
-		double feels_like_ave = 0;
-		double visibility_ave = 0;
-		double variance = 0;
+		//double temp_max_ave = 0;
+		//double temp_min_ave = 0;
+		double tPercepita_media = 0;
+		//double visibility_ave = 0;
+		//double variance = 0;
 
 		//int i=0;
 
 		String date = "";
-		date += (city.getInfoMeteo().get(0).getData()).charAt(8);
-		date += (city.getInfoMeteo().get(0).getData()).charAt(9);
+		date += (city.getInfoMeteo().getData()).charAt(8);
+		date += (city.getInfoMeteo().getData()).charAt(9);
 
 		String effectiveDate = date;
 
-		double max_visibility = 0;
-		double min_visibility = city.getInfoMeteo().get(i).getVisibility();
+		//double max_visibility = 0;
+		//double min_visibility = city.getInfoMeteo().get(i).getVisibility();
 
 		while(date.equals(effectiveDate)) {
-			temp_max_ave += city.getInfoMeteo().getTemp_max();
-			temp_min_ave += city.getVector().get(i).getTemp_min();
-			feels_like_ave += city.getInfoMeteo().getTempPer();
-			visibility_ave += city.getVector().get(i).getVisibility();
-			if(city.getVector().get(i).getVisibility()>max_visibility)
-				max_visibility = city.getVector().get(i).getVisibility();
-			if (city.getVector().get(i).getVisibility()<min_visibility)
-				min_visibility = city.getVector().get(i).getVisibility();
-			i++;
+			//temp_max_ave += city.getInfoMeteo().getTemp_max();
+			//temp_min_ave += city.getVector().get(i).getTemp_min();
+			tPercepita_media += city.getInfoMeteo().getTempPer();
+			//visibility_ave += city.getVector().get(i).getVisibility();
+//			if(city.getVector().get(i).getVisibility()>max_visibility)
+//				max_visibility = city.getVector().get(i).getVisibility();
+//			if (city.getVector().get(i).getVisibility()<min_visibility)
+//				min_visibility = city.getVector().get(i).getVisibility();
+//			i++;
 			effectiveDate = "";
-			effectiveDate += (city.getVector().get(i).getData()).charAt(8);
-			effectiveDate += (city.getVector().get(i).getData()).charAt(9);
+			effectiveDate += (city.getInfoMeteo().getData()).charAt(8);
+			effectiveDate += (city.getInfoMeteo().getData()).charAt(9);
 		}
 
 
-		temp_max_ave = temp_max_ave/i;
-		temp_min_ave = temp_min_ave/i;
-		feels_like_ave = feels_like_ave/i;
-		visibility_ave = visibility_ave/i;
+//		temp_max_ave = temp_max_ave/i;
+//		temp_min_ave = temp_min_ave/i;
+		tPercepita_media = tPercepita_media/i;
+//		visibility_ave = visibility_ave/i;
 
 		effectiveDate = date;
 		i=0;

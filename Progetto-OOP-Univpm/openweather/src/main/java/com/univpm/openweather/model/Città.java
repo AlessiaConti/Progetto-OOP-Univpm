@@ -11,6 +11,18 @@ public class Città {
 
 	private Coordinate coordinate; //attributo di tipo 'coordinate' (lon e lat della città)
 	private InformazioniMeteo infoMeteo; //attributo che contiene info meteo della città*/
+	
+	//costruttori utili
+	public Città() {
+		super();
+	}
+	
+	public Città(String nome) {
+		this.id=null;
+		this.nome=nome;
+		this.coordinate=null;
+		//this.weatherArray = null;
+	}
 
 	//getter
 	public Coordinate getCoordinate() {

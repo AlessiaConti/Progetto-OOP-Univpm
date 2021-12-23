@@ -12,17 +12,21 @@ public interface weatherService {
 
 	//metodi astratti
 
-	//metodi utili per la rotta /getWeather
+	//metodi utili per la rotta /getWeatherbyCoord
 	public abstract JSONObject readJSON(double lat, double lon);
 	public abstract Città getMeteo(JSONObject obj);
 	public abstract JSONObject toJSON(Città city);
-
+	
+	//metodi per la rotta aggiuntiva /getWeatherbyName
+	public abstract JSONObject readJSONbyName(String city); 
+	
 	//metodi utili per la rotta /saveToFile
-	public abstract String saveToFile(double lat, double lon);
+	public abstract String saveToFile(String city);
 
 	//metodi utili per rotta /stats
 	public abstract JSONArray LeggiStorico(String name, boolean flag);
-	public abstract ArrayList<JSONArray> LeggiStoricoUmidita(ArrayList<String> cities, String period); 
+	public abstract ArrayList<JSONArray> LeggiStoricoUmidita(ArrayList<String> cities, String period);
+
 
 
 }

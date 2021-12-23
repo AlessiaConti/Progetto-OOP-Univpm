@@ -19,7 +19,6 @@ import com.univpm.openweather.exception.EmptyStringException;
 import com.univpm.openweather.exception.WrongPeriodException;
 
 import com.univpm.openweather.service.weatherService;
-import com.univpm.openweather.service.statsService;
 
 @Controller 
 public class weatherController {
@@ -33,9 +32,18 @@ public class weatherController {
 	 * Rotta che mostra le previsioni relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite coordinate
 	 * */
-	@RequestMapping(value="/getWeather")                
-	public ResponseEntity<Object> getWeather(@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) { 
+	@RequestMapping(value="/getWeatherbyCoord")                
+	public ResponseEntity<Object> getWeatherC(@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) { 
 		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSON(lat,lon))), HttpStatus.OK);
+	} 
+	
+	/**
+	 * Rotta AGGIUNTIVA che mostra le previsioni relative a umidità, temperatura effettiva e
+	 * temperatura percepita della città inserita da utente tramite nome
+	 * */
+	@RequestMapping(value="/getWeatherbyName")                
+	public ResponseEntity<Object> getWeatherN(@RequestParam(name="city") String city) { 
+		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSONbyName(city))), HttpStatus.OK);
 	} 
 	
 	/**
@@ -44,28 +52,27 @@ public class weatherController {
 	 * IOException se si verificano errori di output su file.
 	 */
 	@RequestMapping(value="/saveToFile")
-	public ResponseEntity<Object> save (@RequestParam(name="lat") double lat, @RequestParam (name="lon") double lon) throws IOException {
-		String path = service.saveToFile(lat,lon);
-		return new ResponseEntity<> (path, HttpStatus.OK);
+	public ResponseEntity<Object> save (@RequestParam(name="city") String city) throws IOException {
+		return new ResponseEntity<> (service.saveToFile(city), HttpStatus.OK);
 	}
 
 	/**
 	 * Rotta di tipo POST che filtra in base alla periodicità specificata da utente 
-	 * (giornaliera, settimanale, mensile) le statistiche riguardanti umidità, 
-	 * temp effettiva e percepita
+	 * (giornaliera, settimanale, mensile) le statistiche riguardanti solo
+	 * temp percepita (per ora)
 	 * Le città ammesse sono solo Ancona e Roma per ora
 	 * 
 	 * L'utente deve inserire un JSONObject di questo tipo:
 	 * {
-     *     "cities": [
+     *     "città": [
      *        {
-     *          "name": "Ancona"
+     *          "nome": "Ancona"
      *        },
      *         {
-     *          "name": "Roma"
+     *          "nome": "Roma"
      *        }
      *      ],
-     *     "period": "giornaliera"
+     *     "periodicità": "giornaliera"
      *  }
 	 * Eccezioni:
 	 * @throws EmptyStringException se una delle stringhe immesse è vuota.
@@ -74,10 +81,11 @@ public class weatherController {
 	 * cioè una stringa diversa da "giornaliera", "settimanale", "mensile".
 	 * @throws IOException se ci sono errori di input da file.
 	 */
-	@PostMapping(value="/stats")
+	@PostMapping(value="/statUmidita")
     public ResponseEntity<Object> statsHistory(@RequestBody String body) 
     		throws EmptyStringException, CityNotFoundException, WrongPeriodException, IOException {
 		
+		//costruisco il BODY della richiesta che poi dovrà inserire l'utente
 		JSONObject object = new JSONObject(body);
         JSONArray array = new JSONArray();
 
@@ -94,7 +102,7 @@ public class weatherController {
         String period = object.getString("periodicità");
         
         try {
-        	return new ResponseEntity<>(statsService.LeggiStoricoUmidita(cities,period).toString(),HttpStatus.OK);
+        	return new ResponseEntity<>(service.LeggiStoricoUmidita(cities,period).toString(),HttpStatus.OK);
         }
         catch (EmptyStringException e) {
 			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);

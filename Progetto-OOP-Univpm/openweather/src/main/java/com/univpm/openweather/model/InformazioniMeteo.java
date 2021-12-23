@@ -17,7 +17,7 @@ public class InformazioniMeteo {
 	public double getTempPer() {
 		return tempPer;
 	}
-	public long getUmidità() {
+	public long getUmidita() {
 		return umidità;
 	}
 	public String getData() {
@@ -31,7 +31,7 @@ public class InformazioniMeteo {
 	public void setTempPer(double tempPer) {
 		this.tempPer = tempPer;
 	}
-	public void setUmidità(long umidità) {
+	public void setUmidita(long umidità) {
 		this.umidità = umidità;
 	}
 	public void setData(String data) {

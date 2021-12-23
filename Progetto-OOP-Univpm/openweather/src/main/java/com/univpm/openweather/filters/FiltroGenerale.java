@@ -10,7 +10,8 @@ import org.json.simple.JSONArray;
  * @author AlessiaConti 
  */
 public interface FiltroGenerale {
-	//filtro giornaliero
-		public abstract JSONArray unGiorno(ArrayList<String> cities, String value);
+
+	//metodo per il filtro giornaliero
+	public abstract JSONArray unGiorno(ArrayList<String> cities, String value);
 
 }
