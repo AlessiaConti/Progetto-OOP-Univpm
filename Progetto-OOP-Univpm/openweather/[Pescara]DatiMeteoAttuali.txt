@@ -1,1 +1,2 @@
 {"Data":"2021-12-23","Città":"Provincia di Pescara","id":"3171163","Info meteo":[{"umidità":60,"temp percepita":282.5,"temp effettiva":282.5}]}
+{"Data":"2021-12-23","Città":"Provincia di Pescara","id":"3171163","Info meteo":[{"umidità":76,"temp percepita":276.49,"temp effettiva":278.6}]}
