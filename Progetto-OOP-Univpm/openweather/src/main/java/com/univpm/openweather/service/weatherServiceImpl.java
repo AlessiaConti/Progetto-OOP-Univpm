@@ -3,7 +3,6 @@ package com.univpm.openweather.service;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,27 +10,23 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Vector;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
-import com.univpm.openweather.exception.CityNotFoundException;
-import com.univpm.openweather.exception.EmptyStringException;
-import com.univpm.openweather.exception.WrongPeriodException;
 import com.univpm.openweather.model.*;
 
+/**
+ * Classe che implementa l'interfaccia weatherService
+ * @author A.Conti
+ * 
+ */
 
 @Service
 public class weatherServiceImpl implements weatherService {
-
-	//classe che implementa l'interfaccia weatherService
 
 	//apyKey=chiave necessaria per ottenere informazioni da OpenWeather
 	private String apiKey= "be1788b24b6c02e4146b4b4cd3eb9058" ;
@@ -42,8 +37,11 @@ public class weatherServiceImpl implements weatherService {
 	//ora implemento i metodi che nell'interfaccia erano astratti
 
 	/** 
-	 * readJSON() = metodo per LEGGERE il file JSON ottenuto 
-	 *                    dalla chiamata API passando le COORDINATE
+	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
+	 * passando le COORDINATE della città
+	 * @param latitudine
+	 * @param longitudine
+	 * @return JSONObject contenente i dati meteo
 	 */
 	@Override
 	public JSONObject readJSON(double lat, double lon) {
@@ -82,8 +80,10 @@ public class weatherServiceImpl implements weatherService {
 	}
 	
 	/** 
-	 * readJSON() = metodo per LEGGERE il file JSON ottenuto 
-	 *                    dalla chiamata API passando il NOME della città
+	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
+	 * passando il NOME della città
+	 * @param nome della città
+	 * @return JSONObject contenente i dati meteo
 	 */
 	@Override
 	public JSONObject readJSONbyName(String city) {
@@ -123,11 +123,13 @@ public class weatherServiceImpl implements weatherService {
 
 
 	/**
-	 * getMeteo()=metodo per OTTENERE i dati meteo che mi interessano
+	 * Questo metodo serve per ottenere i dati meteo richiesti
+	 * @param JSONObject contenente i dati meteo
+	 * @return oggetto di tipo Citta con dati meteo aggiornati
 	 */
 	@Override
-	public Città getMeteo(JSONObject obj) {
-		Città city=new Città();
+	public Citta getMeteo(JSONObject obj) {
+		Citta city=new Citta();
 		InformazioniMeteo infoMeteo=new InformazioniMeteo();
 
 		city.setNome((String) obj.get("name"));
@@ -150,11 +152,13 @@ public class weatherServiceImpl implements weatherService {
 	}
 
 	/**
-	 * toJSON()= metodo per costruire la struttura del JSON da restituire all'utente
+	 * Questo metodo serve per costruire la struttura del JSON da restituire all'utente
+	 * @param oggetto di tipo Citta 
+	 * @return JSONObject contenente i dati meteo della città richiesta dall'utente
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject toJSON(Città city) {
+	public JSONObject toJSON(Citta city) {
 		//creo JSON Object con 2 parametri { }
 		JSONObject output =new JSONObject();
 		output.put("Città", city.getNome());
@@ -195,7 +199,7 @@ public class weatherServiceImpl implements weatherService {
 
 		obj1 = readJSONbyName(nome);
 
-		Città city=getMeteo(obj1);
+		Citta city=getMeteo(obj1);
 
 		JSONObject obj2 = toJSON(city);
 
@@ -218,12 +222,6 @@ public class weatherServiceImpl implements weatherService {
 
 		return "Il file è stato salvato in " + path;	
 	}
-
-/**************************************************************************************/
-
 	
-
-
-
 
 }
