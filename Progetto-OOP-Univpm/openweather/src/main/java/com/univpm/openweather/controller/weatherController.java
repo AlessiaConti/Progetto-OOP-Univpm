@@ -27,7 +27,7 @@ public class WeatherController {
 	/**
 	 * Rotta che mostra le informazioni meteo relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite coordinate
-	 * e stampa in locale il file con i dati meteo 
+	 * e prevede anche un salvataggio in locale dei dati meteo su un file chiamato 'Dati meteo.txt'
 	 * 
 	 * @author F.Fabiocchi, A.Conti
 	 * @param double lat
