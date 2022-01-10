@@ -1,7 +1,7 @@
 # Progetto-OOP-Univpm
 # Openweather
 
-#### Applicazione Java che grazie all'inserimento delle coordinate di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva e temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.
+#### Applicazione Java che grazie all'inserimento di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva, temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.
 
 ## Contenuti
 * Introduzione
@@ -13,13 +13,21 @@
 * Autori
 
 ## Introduzione
+Questa applicazione permette di:
+- [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita da utente tramite coordinate
+- [x] Salvare dati in locale
+- [ ] Gestire possibili errori dovuti a inserimento di coordinate errate
+- [ ] Facilitare inserimento delle coordinate con possibilità di ricercarle tramite un dizionario statico
+- [x] Ottenere statistiche riguardanti valori min max media e varianza di umidità, temp effettiva e percepita
+- [x] Scegliere filtraggio delle statistiche in base alla periodicità: giornaliera, settimanale, mensile
+
 
 ## Configurazione
 Questa applicazione è installabile dal Prompt dei Comandi digitando:
 ```
 git clone https://github.com/FabiocchiF/Progetto-OOP-Univpm.git
 ```
-oppure installando https://desktop.github.com/ e clonando la repository in locale.
+oppure installando [*GitHub Desktop*](https://desktop.github.com/) e clonando la repository in locale.
 
 ## Rotte
 Le richieste che l'utente può effettuare tramite Postman devono essere all'indirizzo:
