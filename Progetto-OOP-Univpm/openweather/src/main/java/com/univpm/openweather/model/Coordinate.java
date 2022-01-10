@@ -11,36 +11,36 @@ public class Coordinate {
 	 */
 	private double lon;
 	private double lat;
-	
+
 	/** Costruttore dell'oggetto Coordinate
-     * @param lat      rappresenta la latitudine
-     * @param lon     rappresenta la longitudine
-     */
+	 * @param lat      rappresenta la latitudine
+	 * @param lon     rappresenta la longitudine
+	 */
 	public Coordinate(double lat, double lon) {
 		this.lat = lat;
 		this.lon = lon;
 	}
-	
+
 	/**
-     * Metodi Getters che restituiscono latitudine e longitudine
-     */
+	 * Metodi Getters che restituiscono latitudine e longitudine
+	 */
 	public double getLon() {
 		return this.lon;
 	}
 	public double getLat() {
 		return this.lat;
 	}
-	
+
 	/**
-     * Metodi Setters che settano latitudine e longitudine
-     */
+	 * Metodi Setters che settano latitudine e longitudine
+	 */
 	public void setLon(int lon) {
 		this.lon = lon;
 	}
 	public void setLat(int lat) {
 		this.lat = lat;
 	}
-	
+
 	/**
 	 * Override del metodo toString. 
 	 * @return String (stringa che rappresenta le coordinate della città)
