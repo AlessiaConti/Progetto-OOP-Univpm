@@ -14,7 +14,7 @@
 * [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
 
 ## Introduzione
-Questa applicazione permette di:
+L'applicazione permette di:
 - [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita dall'utente
 - [x] Salvare dati in locale
 - [ ] Gestire possibili errori dovuti a inserimento di coordinate errate
