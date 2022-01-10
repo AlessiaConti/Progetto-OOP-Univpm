@@ -53,8 +53,8 @@ localhost:8080
 Le rotte disponibili sono le seguenti:
 N° | Rotta | Descrizione
 ---- | ---- | ----
-1 | ```/getWeather``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temperatura effettiva e temperatura percepita 
-2 | ```/getWeatherbyName``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temperatura effettiva e temperatura percepita (*Rotta aggiuntiva*)
+1 | ```/getWeather``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temperatura effettiva e percepita, con salvataggio automatico dei dati in locale
+2 | ```/getWeatherbyName``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temp effettiva e percepita (*Rotta aggiuntiva*)
 3 | ```/getStats``` |
 4 | ```/getFilters``` |
 
