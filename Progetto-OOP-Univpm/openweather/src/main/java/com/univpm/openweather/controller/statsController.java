@@ -31,7 +31,8 @@ import com.univpm.openweather.stats.StatsImpl;
 	private FiltersImpl filtersImpl;
 	
 	@RequestMapping(value = "/getStats")
-	public ResponseEntity<Vector<Citta>> getStats(@RequestParam(name = "frequenza")int frequenza) throws FileNotFoundException, IOException, ParseException { //mettere param tipo filtro
+	public ResponseEntity<Vector<Citta>> getStats(@RequestParam(name = "frequenza") int frequenza) 
+			throws FileNotFoundException, IOException, ParseException { //mettere param tipo filtro
 		return new ResponseEntity<Vector<Citta>> (statImpl.getMeteoArray(frequenza),HttpStatus.OK);
 	}
 	
