@@ -72,4 +72,3 @@ Progetto realizzato da
 * Francesco Fabiocchi
 * Alessia Conti
 * Andrea Scalzi
-

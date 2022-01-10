@@ -1,20 +1,29 @@
 package com.univpm.openweather.model;
 
+/**
+ * Classe che rappresenta le coordinate (latitudine e longitudine) di una città
+ */
+
 public class Coordinate {
-	
-	//Classe che rappresenta le coordinate (latitudine e longitudine) di una città
-	
-	//attributi
+
+	/**
+	 * Attributi
+	 */
 	private double lon;
 	private double lat;
 	
-	//costruttore
+	/** Costruttore dell'oggetto Coordinate
+     * @param lat      rappresenta la latitudine
+     * @param lon     rappresenta la longitudine
+     */
 	public Coordinate(double lat, double lon) {
 		this.lat = lat;
 		this.lon = lon;
 	}
 	
-	//getter
+	/**
+     * Metodi Getters che restituiscono latitudine e longitudine
+     */
 	public double getLon() {
 		return this.lon;
 	}
@@ -22,7 +31,9 @@ public class Coordinate {
 		return this.lat;
 	}
 	
-	//setter
+	/**
+     * Metodi Setters che settano latitudine e longitudine
+     */
 	public void setLon(int lon) {
 		this.lon = lon;
 	}
@@ -30,8 +41,10 @@ public class Coordinate {
 		this.lat = lat;
 	}
 	
-	//Override del metodo toString 
-	// restituisce stringa che rappresenta le coordinate della città
+	/**
+	 * Override del metodo toString. 
+	 * @return String (stringa che rappresenta le coordinate della città)
+	 */
 	@Override
 	public String toString() {
 		return "[Latitudine:" + this.lat + ", Longitudine:" + this.lon + "]";
