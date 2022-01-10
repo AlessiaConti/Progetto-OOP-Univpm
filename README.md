@@ -105,9 +105,13 @@ Tutto il progetto è documentato in javadoc.
 
 ## Software utilizzati
 * [Eclipse](https://www.eclipse.org/downloads/) - Ambiente di sviluppo
-* [Maven](https://maven.apache.org/) - Software utilizzato per gestione di progetto Java e dipendenze
+* [Postman](https://www.postman.com/) - Strumento utile per richiamare e testare le API
+* [Git](https://git-scm.com/) e [GitHub]() - Sistemi per il versioning del codice
 * [Spring Boot](https://spring.io/projects/spring-boot) - Framework per sviluppo di applicazioni in Java
-* [Postman](https://www.postman.com/) - Strumento utile per testare le API
+* [Maven](https://maven.apache.org/) - Software per gestione del progetto Java e dipendenze
+* [Libreria JSON.simple](https://www.tutorialspoint.com/json_simple/index.htm) - Libreria per parsing, lettura e scrittura di oggetti e array in formato JSON
+* [Javadoc](https://www.oracle.com/java/technologies/javase/javadoc-tool.html) - Strumento per la generazione automatica della documentazione del codice sorgente
+* [JUnit 5](https://junit.org/junit5/) -Framework per lo unit testing
 
 
 ## Autori
