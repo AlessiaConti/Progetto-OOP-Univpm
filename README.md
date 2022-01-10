@@ -14,6 +14,7 @@
   * [**/getStats**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#3-getstats)
   * [**/getFilters**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#4-getfilters)
   * [Dizionario](https://github.com/FabiocchiF/Progetto-OOP-Univpm/blob/main/README.md#dizionario)
+  * [Eccezioni]()
 * [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
 * [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
 * [Software utilizzati](https://github.com/FabiocchiF/Progetto-OOP-Univpm#software-utilizzati)
@@ -70,19 +71,29 @@ Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un 
 
 ![Immagine1.2](https://user-images.githubusercontent.com/91316014/148812290-d793d63a-1346-4000-9077-7de9e4c750de.png)
 
-
+***
 
 ### 2. /getWeatherbyName
 Con questa rotta invece va inserito il nome della città di interesse. Restituisce un JSONObject contenente la data in cui è stata effettuata la ricerca, le informazioni relative alla città cercata e le informazioni sul meteo riguardanti umidità, temperatura percepita ed effettiva.
 
 ![Immagine2](https://user-images.githubusercontent.com/91316014/148811253-940f52f6-37d3-4d9f-93ad-18d82a3462fa.png)
 
+***
 
 ### 3. /getStats
 
+***
+
 ### 4. /getFilters
 
+***
+
 ### Dizionario
+
+***
+
+### Eccezioni
+
 
 
 ## Test
@@ -101,6 +112,6 @@ Tutto il progetto è documentato in javadoc.
 
 ## Autori
 Progetto realizzato da
-* Francesco Fabiocchi
-* Alessia Conti
-* Andrea Scalzi
+* *Francesco Fabiocchi*
+* *Alessia Conti*
+* *Andrea Scalzi*
