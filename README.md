@@ -14,7 +14,7 @@
 * [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
 
 ## Introduzione
-Questa applicazione permette di:
+L'applicazione permette di:
 - [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita dall'utente
 - [x] Salvare dati in locale
 - [ ] Gestire possibili errori dovuti a inserimento di coordinate errate
@@ -46,12 +46,20 @@ N° | Rotta | Descrizione
 ## Esempi di utilizzo
 ### 1. /getWeather
 Con questa rotta devono essere inserite le coordinate della città di interesse. Restituisce un JSONObject contenente la data in cui è stata effettuata la ricerca, le informazioni relative alla città cercata (nome e id) e le informazioni sul meteo riguardanti umidità, temperatura percepita ed effettiva.
-Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un salvataggio in locale dei dati.
-![image1](https://user-images.githubusercontent.com/91316014/148759712-8b9614f9-448e-4b07-8b0d-89421629b823.png)
+
+![Immagine1](https://user-images.githubusercontent.com/91316014/148811173-b6f33828-9afa-4cb6-9eb2-d06af2987abc.png)
+
+Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un salvataggio in locale dei dati in un file di testo (che viene salvato nel path indicato in rosso)
+
+![Immagine1.2](https://user-images.githubusercontent.com/91316014/148812290-d793d63a-1346-4000-9077-7de9e4c750de.png)
+
+
 
 ### 2. /getWeatherbyName
 Con questa rotta invece va inserito il nome della città di interesse. Restituisce un JSONObject contenente la data in cui è stata effettuata la ricerca, le informazioni relative alla città cercata e le informazioni sul meteo riguardanti umidità, temperatura percepita ed effettiva.
-![image2](https://user-images.githubusercontent.com/91316014/148760730-9c57437b-10fc-4d2e-9003-0bbd6a86eda5.png)
+
+![Immagine2](https://user-images.githubusercontent.com/91316014/148811253-940f52f6-37d3-4d9f-93ad-18d82a3462fa.png)
+
 
 ### 3. /getStats
 
@@ -67,6 +75,7 @@ Tutto il progetto è documentato in javadoc.
 * [Maven](https://maven.apache.org/) - Software utilizzato per gestione di progetto Java e dipendenze
 * [Spring Boot](https://spring.io/projects/spring-boot) - Framework per sviluppo di applicazioni in Java
 * [Postman](https://www.postman.com/) - Strumento utile per testare le API
+
 ## Autori
 Progetto realizzato da
 * Francesco Fabiocchi
