@@ -37,7 +37,7 @@ public class WeatherService implements WeatherServiceInterface {
 
 	/** 
 	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
-	 * passando le COORDINATE della città
+	 * passando come parametri le coordinate della città
 	 * @param double lat
 	 * @param double lon
 	 * @return JSONObject contenente i dati meteo
@@ -78,9 +78,10 @@ public class WeatherService implements WeatherServiceInterface {
 		return meteo;
 	}
 
+	
 	/** 
 	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
-	 * passando il NOME della città
+	 * passando come parametro il nome della città (utilizzato per la rotta /getWeatherbyName)
 	 * @param String city (nome della città)
 	 * @return JSONObject contenente i dati meteo
 	 */
@@ -150,6 +151,7 @@ public class WeatherService implements WeatherServiceInterface {
 		return city;
 	}
 
+	
 	/**
 	 * Questo metodo serve per costruire la struttura del JSON da restituire all'utente
 	 * @param oggetto di tipo Citta 
@@ -179,6 +181,6 @@ public class WeatherService implements WeatherServiceInterface {
 		output.put("Info meteo", meteoList);
 		return output;
 	}
-	
+
 
 }

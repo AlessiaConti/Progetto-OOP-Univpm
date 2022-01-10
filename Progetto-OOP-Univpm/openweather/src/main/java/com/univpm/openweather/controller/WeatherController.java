@@ -14,7 +14,7 @@ import com.univpm.openweather.IO.SalvaDati;
 import com.univpm.openweather.service.WeatherService;
 
 /**
- * Controller che gestisce le chiamate al server che il client può fare per ricevere dati meteo di una città
+ * Controller che gestisce le chiamate al server che il client può fare per ricevere i dati meteo di una città
  */
 
 @Controller 
@@ -23,7 +23,7 @@ public class WeatherController {
 	private WeatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
 	@Autowired
 	private SalvaDati stampa; //creo un oggetto stampa preposto a stampare in locale un file contenente i dati meteo
-	
+
 	/**
 	 * Rotta che mostra le informazioni meteo relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite coordinate
@@ -40,9 +40,9 @@ public class WeatherController {
 			@RequestParam(name="lat") double lat, 
 			@RequestParam (name="lon") double lon) 
 					throws IOException { 
-		
+
 		JSONObject datiMeteo = null;
-		
+
 		try {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
@@ -51,8 +51,8 @@ public class WeatherController {
 		}
 		return new ResponseEntity<> (datiMeteo, HttpStatus.OK);
 	} 	
-	
-	
+
+
 	/**
 	 * Rotta aggiuntiva che mostra le informazioni meteo relative a umidità, temperatura effettiva e
 	 * temperatura percepita della città inserita da utente tramite nome

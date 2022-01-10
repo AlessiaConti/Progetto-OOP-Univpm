@@ -5,7 +5,7 @@ package com.univpm.openweather.model;
  */
 
 public class InformazioniMeteo {
-	
+
 	/**
 	 * Attributi
 	 */
@@ -13,10 +13,10 @@ public class InformazioniMeteo {
 	private double tempPer;
 	private long umidità; //data in %
 	private String data; //espressa con sistema 'unix, UTC'
-	
+
 	/**
-     * Metodi Getters che restituiscono le informazioni meteo
-     */
+	 * Metodi Getters che restituiscono le informazioni meteo
+	 */
 	public double getTempEff() {
 		return tempEff;
 	}
@@ -29,10 +29,10 @@ public class InformazioniMeteo {
 	public String getData() {
 		return data;
 	}
-	
+
 	/**
-     * Metodi Setters che settano le informazioni meteo
-     */
+	 * Metodi Setters che settano le informazioni meteo
+	 */
 	public void setTempEff(double tempEff) { 
 		this.tempEff = tempEff;
 	}
@@ -45,7 +45,7 @@ public class InformazioniMeteo {
 	public void setData(String data) {
 		this.data = data;
 	}
-	
+
 	/**
 	 * Override del metodo toString.
 	 * @return String che rappresenta il meteo.
@@ -57,5 +57,5 @@ public class InformazioniMeteo {
 		return s;
 	}
 
-	
+
 }
