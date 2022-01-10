@@ -45,7 +45,7 @@ N° | Rotta | Descrizione
 
 ## Esempi di utilizzo
 ### 1. /getWeather
-Con questa rotta vanno inserite le coordinate della città di interesse. Restituisce un JSONObject contenente la data in cui è stata effettuata la ricerca, le informazioni relative alla città cercata (nome e id) e le informazioni sul meteo riguardanti umidità, temperatura percepita ed effettiva.
+Con questa rotta devono essere inserite le coordinate della città di interesse. Restituisce un JSONObject contenente la data in cui è stata effettuata la ricerca, le informazioni relative alla città cercata (nome e id) e le informazioni sul meteo riguardanti umidità, temperatura percepita ed effettiva.
 Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un salvataggio in locale dei dati.
 ![image1](https://user-images.githubusercontent.com/91316014/148759712-8b9614f9-448e-4b07-8b0d-89421629b823.png)
 
@@ -54,6 +54,7 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 ![image2](https://user-images.githubusercontent.com/91316014/148760730-9c57437b-10fc-4d2e-9003-0bbd6a86eda5.png)
 
 ### 3. /getStats
+
 ### 4. /getFilters
 
 ## Test
@@ -63,10 +64,9 @@ Tutto il progetto è documentato in javadoc.
 
 ## Software utilizzati
 * [Eclipse](https://www.eclipse.org/downloads/) - Ambiente di sviluppo
-* [Maven](https://maven.apache.org/) - software di gestione di progetti e librerie
-* [Spring Boot](https://spring.io/projects/spring-boot) - framework per sviluppo di applicazioni in Java
-* [Postman](https://www.postman.com/) - ambiente di sviluppo API per effettuare richieste
-
+* [Maven](https://maven.apache.org/) - Software utilizzato per gestione di progetto Java e dipendenze
+* [Spring Boot](https://spring.io/projects/spring-boot) - Framework per sviluppo di applicazioni in Java
+* [Postman](https://www.postman.com/) - Strumento utile per testare le API
 ## Autori
 Progetto realizzato da
 * Francesco Fabiocchi
