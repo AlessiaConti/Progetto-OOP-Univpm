@@ -18,7 +18,10 @@
 * [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
 
 ## Introduzione
-L'applicazione utilizza l'API di OpenWeather riguardante il meteo corrente (disponibile al seguente link: [Current weather data](https://openweathermap.org/current#geo)).
+L'applicazione utilizza l'API di OpenWeather riguardante il meteo corrente, disponibile al seguente link: 
+```
+https://openweathermap.org/current#geo
+```
 Tramite questa API il programma riceve, salva ed elabora i dati meteo riguardanti la città cercata dall'utente.
 L'applicazione permette quindi di:
 - [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita dall'utente
