@@ -1,5 +1,5 @@
 # Progetto-OOP-Univpm
-# Openweather
+:cloud: # Openweather :cloud:
 
 *Applicazione Java che grazie all'inserimento di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva, temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.*
 
@@ -15,7 +15,7 @@
 
 ## Introduzione
 Questa applicazione permette di:
-- [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita da utente tramite coordinate
+- [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita dall'utente
 - [x] Salvare dati in locale
 - [ ] Gestire possibili errori dovuti a inserimento di coordinate errate
 - [ ] Facilitare inserimento delle coordinate con possibilità di ricercarle tramite un dizionario statico
