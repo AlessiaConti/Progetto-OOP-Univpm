@@ -10,16 +10,23 @@ import org.springframework.stereotype.Service;
 import com.univpm.openweather.service.*;
 
 /**
+ * Classe che sfruttando WeatherService salva in locale il JSON della città cercata con WeatherController
  * @author F.Fabiocchi
  */ 
 @Service
 public class SalvaDati {
 
-	//attributi
 	weatherServiceImpl Ws = new weatherServiceImpl();
 	double lat,lon;
-
-	public String stampaMeteo(JSONObject obj) {
+	
+	/**
+	 * Metodo di stampa che tramite PrintWriter salva in locale il file scansionato 
+	 * 
+	 * @param obj JSONObject
+	 * @return "Stampa avvenuta"
+	 * @throws IoException
+	 */
+	public String stampaMeteo(JSONObject obj) throws IOException{
 
 		try {
 
