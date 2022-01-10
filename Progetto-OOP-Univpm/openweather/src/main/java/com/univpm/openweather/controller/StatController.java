@@ -23,8 +23,7 @@ import com.univpm.openweather.stats.StatsImpl;
 
 
 @RestController
-  public class statsController {
-	
+public class StatController {
 	@Autowired
 	private StatsImpl statImpl;
 	@Autowired

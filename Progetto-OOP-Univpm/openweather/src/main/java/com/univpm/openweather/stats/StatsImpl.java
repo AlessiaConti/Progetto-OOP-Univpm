@@ -37,7 +37,7 @@ public class StatsImpl implements StatsInterface {
 	 */
 	
 	@Override
-	public Vector<Citta> getMeteoArray(int indice) throws IOException, org.json.simple.parser.ParseException, FileNotFoundException{
+	public Vector<Citta> getMeteoArray(int indice) throws IOException, org.json.simple.parser.ParseException, FileNotFoundException, IndexOutOfBoundsException{
 		
 		Vector<Citta> vettCitta;
 		vettCitta = new Vector<Citta>();
