@@ -48,7 +48,7 @@ oppure installando [*GitHub Desktop*](https://desktop.github.com/) e clonando la
 ## Rotte
 Le richieste che l'utente può effettuare tramite Postman devono essere all'indirizzo:
 ```
-localhost:8080
+http://localhost:8080
 ```
 Le rotte disponibili sono le seguenti:
 N° | Rotta | Descrizione
