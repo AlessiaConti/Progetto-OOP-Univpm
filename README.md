@@ -1,7 +1,7 @@
 # Progetto-OOP-Univpm
 # :cloud: Openweather :cloud:
 
-*Applicazione Java che grazie all'inserimento di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva, temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.*
+*Applicazione Java in cui l'utente, grazie all'inserimento di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva, temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.*
 
 ## Contenuti
 * [Introduzione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#introduzione)
