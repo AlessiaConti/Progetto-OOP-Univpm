@@ -41,7 +41,7 @@ public class StatsImpl implements StatsInterface {
 		
 		Vector<Citta> vettCitta;
 		vettCitta = new Vector<Citta>();
-		weatherServiceImpl ws = new weatherServiceImpl();
+		WeatherService ws = new WeatherService();
 		
 		try {
 			if(indice < 1 || indice > 30)

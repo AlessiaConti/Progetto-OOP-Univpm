@@ -16,7 +16,7 @@ import com.univpm.openweather.service.*;
 @Service
 public class SalvaDati {
 
-	weatherServiceImpl Ws = new weatherServiceImpl();
+	WeatherService Ws = new WeatherService();
 	double lat,lon;
 	
 	/**
