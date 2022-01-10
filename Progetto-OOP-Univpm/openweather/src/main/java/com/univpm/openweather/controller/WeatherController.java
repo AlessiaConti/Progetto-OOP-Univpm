@@ -62,7 +62,7 @@ public class WeatherController {
 	 * @return JSONObject contenente la data e le previsioni meteo
 	 * */
 	@RequestMapping(value="/getWeatherbyName")                
-	public ResponseEntity<Object> getWeather(@RequestParam(name="city") String city) { 
+	public ResponseEntity<Object> getWeatherbyName(@RequestParam(name="city") String city) { 
 		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSONbyName(city))), HttpStatus.OK);
 	} 
 
