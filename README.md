@@ -12,6 +12,7 @@
   * [**/getWeatherbyName**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#2-getweatherbyname)
   * [**/getStats**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#3-getstats)
   * [**/getFilters**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#4-getfilters)
+  * [Dizionario]()
 * [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
 * [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
 * [Software utilizzati](https://github.com/FabiocchiF/Progetto-OOP-Univpm#software-utilizzati)
@@ -73,6 +74,8 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 ### 3. /getStats
 
 ### 4. /getFilters
+
+### Dizionario
 
 ## Test
 
