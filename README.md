@@ -3,6 +3,7 @@
 
 *Applicazione Java tramite la quale l'utente, grazie all'inserimento di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva, temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.*
 
+
 ## Contenuti
 * [Introduzione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#introduzione)
 * [Configurazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#configurazione)
@@ -12,11 +13,12 @@
   * [**/getWeatherbyName**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#2-getweatherbyname)
   * [**/getStats**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#3-getstats)
   * [**/getFilters**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#4-getfilters)
-  * [Dizionario]()
+  * [Dizionario](https://github.com/FabiocchiF/Progetto-OOP-Univpm/blob/main/README.md#dizionario)
 * [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
 * [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
 * [Software utilizzati](https://github.com/FabiocchiF/Progetto-OOP-Univpm#software-utilizzati)
 * [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
+
 
 ## Introduzione
 L'applicazione utilizza l'API di OpenWeather riguardante il meteo corrente, disponibile al seguente link: 
@@ -33,12 +35,14 @@ L'applicazione permette quindi di:
 - [x] Scegliere filtraggio delle statistiche in base alla periodicità: giornaliera, settimanale, mensile
 
 
+
 ## Configurazione
 Questa applicazione è installabile dal Prompt dei Comandi digitando:
 ```
 git clone https://github.com/FabiocchiF/Progetto-OOP-Univpm.git
 ```
 oppure installando [*GitHub Desktop*](https://desktop.github.com/) e clonando la repository in locale.
+
 
 ## Rotte
 Le richieste che l'utente può effettuare tramite Postman devono essere all'indirizzo:
@@ -53,7 +57,10 @@ N° | Rotta | Descrizione
 3 | ```/getStats``` |
 4 | ```/getFilters``` |
 
+
 ## Esempi di utilizzo
+
+
 ### 1. /getWeather
 Con questa rotta devono essere inserite le coordinate della città di interesse. Restituisce un JSONObject contenente la data in cui è stata effettuata la ricerca, le informazioni relative alla città cercata (nome e id) e le informazioni sul meteo riguardanti umidità, temperatura percepita ed effettiva.
 
@@ -77,16 +84,20 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 
 ### Dizionario
 
+
 ## Test
+
 
 ## Documentazione
 Tutto il progetto è documentato in javadoc.
+
 
 ## Software utilizzati
 * [Eclipse](https://www.eclipse.org/downloads/) - Ambiente di sviluppo
 * [Maven](https://maven.apache.org/) - Software utilizzato per gestione di progetto Java e dipendenze
 * [Spring Boot](https://spring.io/projects/spring-boot) - Framework per sviluppo di applicazioni in Java
 * [Postman](https://www.postman.com/) - Strumento utile per testare le API
+
 
 ## Autori
 Progetto realizzato da
