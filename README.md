@@ -4,14 +4,14 @@
 *Applicazione Java che grazie all'inserimento di una città, riesce ad ottenere le informazioni relative a umidità, temperatura effettiva, temperatura percepita, e le statistiche riguardanti valori minimi, massimi, media e varianza, con filtraggio in base alla periodicità scelta.*
 
 ## Contenuti
-* Introduzione
-* Configurazione
-* Rotte
-* Esempi di utilizzo
-* Test
-* Documentazione
-* Software utilizzati
-* Autori
+* [Introduzione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#introduzione)
+* [Configurazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#configurazione)
+* [Rotte](https://github.com/FabiocchiF/Progetto-OOP-Univpm#rotte)
+* [Esempi di utilizzo](https://github.com/FabiocchiF/Progetto-OOP-Univpm#esempi-di-utilizzo)
+* [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
+* [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
+* [Software utilizzati](https://github.com/FabiocchiF/Progetto-OOP-Univpm#software-utilizzati)
+* [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
 
 ## Introduzione
 Questa applicazione permette di:
