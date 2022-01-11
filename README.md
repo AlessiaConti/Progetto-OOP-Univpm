@@ -11,7 +11,6 @@
 * [Esempi di utilizzo](https://github.com/FabiocchiF/Progetto-OOP-Univpm#esempi-di-utilizzo)
   * [**/getWeather**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#1-getweather)
   * [**/getWeatherbyName**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#2-getweatherbyname)
-  * [**/getStats**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#3-getstats)
   * [**/getFilters**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#4-getfilters)
   * [Dizionario](https://github.com/FabiocchiF/Progetto-OOP-Univpm/blob/main/README.md#dizionario)
   * [Eccezioni]()
