@@ -80,7 +80,8 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 ***
 
 ### 3. /getFilters
-Questa rotta permette il filtraggio di una statistica a scelta tra temperatura effettiva, temperatura percepita e umidità a scelta dell'utente. I filtri disponibili sono massimo, minimo, media e varianza. Il metodo implementatato dalla rotta prevede un'eccezione personalizzata lanciata in caso di frequenza di filtraggio non compresa nell'intervallo (1,30). Per questioni di tempo il filtraggio viene eseguito sul file locale "AnconaStats.json".
+Questa rotta permette il filtraggio di una statistica a scelta tra temperatura effettiva, temperatura percepita e umidità a scelta dell'utente. I filtri disponibili sono massimo, minimo, media e varianza. Il metodo implementatato dalla rotta prevede un'eccezione personalizzata lanciata in caso di frequenza di filtraggio non compresa nell'intervallo (1,30). 
+Per questioni di tempo il filtraggio viene eseguito sul file locale "AnconaStats.json".
 
 **UMIDITA' MINIMA**
 
@@ -98,7 +99,10 @@ Questa rotta permette il filtraggio di una statistica a scelta tra temperatura e
 
 ### Eccezioni
 
+**Eccezione Personalizzata** prevede, tramite il metodo *getIndice()*, l'inserimento di un nuovo indice in caso quello immesso nella rotta */getFilters* 
+non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del compilatore.
 
+![55ea4486d7657c99e4baa9eb216ea2e7](https://user-images.githubusercontent.com/91212564/148922591-525ef1f3-13bf-4b05-b880-ba93062e8185.png)
 
 ## Test
 
