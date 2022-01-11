@@ -55,8 +55,7 @@ N° | Rotta | Descrizione
 ---- | ---- | ----
 1 | ```/getWeather``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temperatura effettiva e percepita, con salvataggio automatico dei dati in locale
 2 | ```/getWeatherbyName``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temp effettiva e percepita (*Rotta aggiuntiva*)
-3 | ```/getStats``` |
-4 | ```/getFilters``` |
+3 | ```/getFilters``` | restituisce un Vettore Città contenente la statistica desiderata filtrata 
 
 
 ## Esempi di utilizzo
@@ -80,11 +79,16 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 
 ***
 
-### 3. /getStats
+### 3. /getFilters
+Questa rotta permette il filtraggio di una statistica a scelta tra temperatura effettiva, temperatura percepita e umidità a scelta dell'utente. I filtri disponibili sono massimo, minimo, media e varianza. Il metodo implementatato dalla rotta prevede un'eccezione personalizzata lanciata in caso di frequenza di filtraggio non compresa nell'intervallo (1,30). Per questioni di tempo il filtraggio viene eseguito sul file locale "AnconaStats.json".
 
-***
+**UMIDITA' MINIMA**
 
-### 4. /getFilters
+![EsempioStatsUmiditàMin](https://user-images.githubusercontent.com/91212564/148920743-8f38e591-dcea-4951-820a-adf113b92aa9.png)
+
+**UMIDITA' MASSIMA**
+
+ ![EsempioStatsUmiditàMax](https://user-images.githubusercontent.com/91212564/148920755-e862fd48-0782-4be2-8196-0dc54f43d31b.png) 
 
 ***
 
@@ -116,6 +120,6 @@ Tutto il progetto è documentato in javadoc.
 
 ## Autori
 Progetto realizzato da
-* *Francesco Fabiocchi*
 * *Alessia Conti*
-* *Andrea Scalzi*
+* *Andrea Scalzi* 
+* *Francesco Fabiocchi*
