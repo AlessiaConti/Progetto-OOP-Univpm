@@ -11,12 +11,15 @@ import com.univpm.openweather.model.Citta;
 /**
  * Interfaccia che contiene i metodi per il filtraggio dei dati meteo
  * 
- * @author f.francesco
+ * @author F.Fabiocchi
  * @param filtro String
  * @param stat String
  * @param int Indice
  * @return vett_Citta_{stat}{filtro}
- * @throws FileNotFoundException, IOException, ParseException, IndexOutOfBoundsException
+ * @throws FileNotFoundException
+ * @throws IOException
+ * @throws ParseException
+ * @throws IndexOutOfBoundsException
  */
 
 

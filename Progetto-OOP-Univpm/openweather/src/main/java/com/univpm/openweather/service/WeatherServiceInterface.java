@@ -1,6 +1,9 @@
 package com.univpm.openweather.service;
 
 import org.json.simple.JSONObject;
+
+import com.univpm.openweather.exception.EccezioneBadRequest;
+import com.univpm.openweather.exception.EccezioneNoCoord;
 import com.univpm.openweather.model.Citta;
 
 /**
@@ -14,7 +17,7 @@ public interface WeatherServiceInterface {
 	//metodi astratti
 
 	//metodi utili per la rotta /getWeather(byCoord)
-	public abstract JSONObject readJSON(double lat, double lon);
+	public abstract JSONObject readJSON(double lat, double lon) throws EccezioneNoCoord;
 	public abstract Citta getMeteo(JSONObject obj);
 	public abstract JSONObject toJSON(Citta city);
 

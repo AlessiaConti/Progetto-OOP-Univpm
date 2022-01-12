@@ -10,24 +10,27 @@ import java.util.Scanner;
  */
 
 public class EccezionePersonalizzata extends Exception  {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public EccezionePersonalizzata() {
 		super();
 	}
-	
+
 	/** 
-	 * Costruttore che chiede all'utente di inserire un numero tra 1 e 30 per l'indice di filtraggio in caso di errore
+	 * Costruttore che stampa un messaggio di errore
 	 * 
 	 * @param errore String
 	 */
-	
-	public EccezionePersonalizzata(String errore) {};
-	
+	public EccezionePersonalizzata(String errore) {
+
+	};
+
+	/** 
+	 * Metodo che chiede all'utente di inserire un nuovo indice in caso di errore
+	 * 
+	 * @return indice
+	 */
 	public int getIndice() {
 		Scanner input = new Scanner(System.in);
 		int indice = input.nextInt();
