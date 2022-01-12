@@ -11,7 +11,6 @@
 * [Esempi di utilizzo](https://github.com/FabiocchiF/Progetto-OOP-Univpm#esempi-di-utilizzo)
   * [**/getWeather**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#1-getweather)
   * [**/getWeatherbyName**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#2-getweatherbyname)
-  * [**/getStats**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#3-getstats)
   * [**/getFilters**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#4-getfilters)
   * [Dizionario](https://github.com/FabiocchiF/Progetto-OOP-Univpm/blob/main/README.md#dizionario)
   * [Eccezioni]()
@@ -55,8 +54,7 @@ N° | Rotta | Descrizione
 ---- | ---- | ----
 1 | ```/getWeather``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temperatura effettiva e percepita, con salvataggio automatico dei dati in locale
 2 | ```/getWeatherbyName``` | restituisce un JSONObject contenente le informazioni meteo relative a umidità, temp effettiva e percepita (*Rotta aggiuntiva*)
-3 | ```/getStats``` |
-4 | ```/getFilters``` |
+3 | ```/getFilters``` | restituisce un Vettore Città contenente la statistica desiderata filtrata 
 
 
 ## Esempi di utilizzo
@@ -69,7 +67,8 @@ Con questa rotta devono essere inserite le coordinate della città di interesse.
 
 Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un salvataggio in locale dei dati in un file di testo (che viene salvato nel path indicato in rosso)
 
-![Immagine1.2](https://user-images.githubusercontent.com/91316014/148812290-d793d63a-1346-4000-9077-7de9e4c750de.png)
+![im](https://user-images.githubusercontent.com/91316014/149120049-0da903d5-7984-45fc-84b3-dbb3045a2f5f.png)
+
 
 ***
 
@@ -80,11 +79,17 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 
 ***
 
-### 3. /getStats
+### 3. /getFilters
+Questa rotta permette il filtraggio di una statistica a scelta tra temperatura effettiva, temperatura percepita e umidità a scelta dell'utente. I filtri disponibili sono massimo, minimo, media e varianza. Il metodo implementatato dalla rotta prevede un'eccezione personalizzata lanciata in caso di frequenza di filtraggio non compresa nell'intervallo (1,30). 
+Per questioni di tempo il filtraggio viene eseguito sul file locale "AnconaStats.json".
 
-***
+**UMIDITA' MINIMA**
 
-### 4. /getFilters
+![EsempioStatsUmiditàMin](https://user-images.githubusercontent.com/91212564/148920743-8f38e591-dcea-4951-820a-adf113b92aa9.png)
+
+**UMIDITA' MASSIMA**
+
+ ![EsempioStatsUmiditàMax](https://user-images.githubusercontent.com/91212564/148920755-e862fd48-0782-4be2-8196-0dc54f43d31b.png) 
 
 ***
 
@@ -94,7 +99,10 @@ Con questa rotta invece va inserito il nome della città di interesse. Restituis
 
 ### Eccezioni
 
+**Eccezione Personalizzata** prevede, tramite il metodo *getIndice()*, l'inserimento di un nuovo indice in caso quello immesso nella rotta */getFilters* 
+non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del compilatore.
 
+![55ea4486d7657c99e4baa9eb216ea2e7](https://user-images.githubusercontent.com/91212564/148922591-525ef1f3-13bf-4b05-b880-ba93062e8185.png)
 
 ## Test
 
@@ -116,6 +124,6 @@ Tutto il progetto è documentato in javadoc.
 
 ## Autori
 Progetto realizzato da
-* *Francesco Fabiocchi*
 * *Alessia Conti*
-* *Andrea Scalzi*
+* *Andrea Scalzi* 
+* *Francesco Fabiocchi*
