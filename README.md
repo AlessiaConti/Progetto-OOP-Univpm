@@ -107,6 +107,13 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 
 ## Test
 
+Sono stati implementati i seguenti test per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni:
+- [x] **Test del model ->** Implementate classi per testare gli oggetti *Citta* e *Coordinate*
+- [x] **Test del service ->** WeatherServiceTest: classe per testare in particolare il metodo *toJSON*
+
+![image](https://user-images.githubusercontent.com/91316014/149234191-a4b73aa8-f818-47cc-a3a0-ab2efeb290ca.png)
+
+
 
 ## Documentazione
 Tutto il progetto è documentato in [Javadoc]().
@@ -140,6 +147,12 @@ Tutto il progetto è documentato in [Javadoc]().
  
  
 * TEST
+  
+  * **model**
+    * CittaTest
+    * CoordinateTest
+  * **service**
+    * WeatherServiceTest    
 
 
 
