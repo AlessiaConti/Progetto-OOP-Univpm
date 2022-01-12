@@ -1,8 +1,5 @@
 package com.univpm.openweather.exception;
 
-import java.util.Scanner;
-
-import com.univpm.openweather.model.Dizionario;
 
 /**
  * Eccezione per gestire possibili errori dovuti a inserimento di coordinate errate
@@ -11,9 +8,9 @@ import com.univpm.openweather.model.Dizionario;
  */
 
 public class EccezioneCoordErrate extends Exception {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Costruttore che richiama superclasse e stampa messaggio di errore
 	 */
@@ -36,10 +33,10 @@ public class EccezioneCoordErrate extends Exception {
 	 * Metodo che restituisce il dizionario
 	 * 
 	 */
-//	public void getDizionario(String nomeCitta, String id) {
-//		Dizionario diz = new Dizionario();
-//		diz.getCoordinateNome(nomeCitta);
-//		diz.getCoordinateiD(id);
-//	}
+	//	public void getDizionario(String nomeCitta, String id) {
+	//		Dizionario diz = new Dizionario();
+	//		diz.getCoordinateNome(nomeCitta);
+	//		diz.getCoordinateiD(id);
+	//	}
 
 }
