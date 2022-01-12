@@ -16,6 +16,7 @@
   * [Eccezioni]()
 * [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
 * [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
+* [Struttura del progetto]()
 * [Software utilizzati](https://github.com/FabiocchiF/Progetto-OOP-Univpm#software-utilizzati)
 * [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
 
@@ -108,7 +109,39 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 
 
 ## Documentazione
-Tutto il progetto è documentato in javadoc.
+Tutto il progetto è documentato in [Javadoc]().
+
+
+## Struttura del progetto
+
+* MAIN
+
+  * **IO**
+    * Salva dati
+  * **controller**
+    * StatController
+    * WeatherController
+  * **exception**
+    * EccezionePersonalizzata
+  * **filters**
+    * FiltersImpl
+    * FiltersInterface
+  * **model**
+    * Citta
+    * Coordinate
+    * Dizionario
+    * InformazioniMeteo
+  * **service**
+    * WeatherService
+    * WeatherServiceInterface
+  * **stats**
+    * StatsImpl
+    * StatsInterface
+ 
+ 
+* TEST
+
+
 
 
 ## Software utilizzati
