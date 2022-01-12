@@ -15,7 +15,6 @@ import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
 import com.univpm.openweather.exception.EccezioneCoordErrate;
-import com.univpm.openweather.exception.EccezioneNoCoord;
 import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
 
@@ -27,10 +26,13 @@ import com.univpm.openweather.model.*;
 
 @Service
 public class WeatherService implements WeatherServiceInterface {
-	//apyKey=chiave necessaria per ottenere informazioni da OpenWeather
+	/**
+	 * Definisco gli attributi necessari ai metodi implementati in seguito: 
+	 * l'apyKey, cioè la chiave necessaria per ottenere informazioni da OpenWeather,
+	 * e l'url di chiamata API con coordinate della città:
+	 * api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+	 */
 	private String apiKey= "be1788b24b6c02e4146b4b4cd3eb9058" ;
-	//url di chiamata API tramite coordinate
-	//api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 	private String url="http://api.openweathermap.org/data/2.5/weather?";
 
 
@@ -43,7 +45,7 @@ public class WeatherService implements WeatherServiceInterface {
 	 * @throws
 	 */
 	@Override
-	public JSONObject readJSON(double lat, double lon) throws EccezioneCoordErrate {
+	public JSONObject readJSON(double lat, double lon) {
 
 		JSONObject meteo=null;
 
@@ -56,7 +58,7 @@ public class WeatherService implements WeatherServiceInterface {
 			String data= " ";
 			String line= " ";
 
-	// if(lat ==0 || lon==0) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
+	// if((lat<-180 || lat>180) || (lon<-180 || lon>180)) throw new EccezioneCoordErrate( );
 
 			try {
 				InputStreamReader inR= new InputStreamReader(in);
@@ -73,7 +75,7 @@ public class WeatherService implements WeatherServiceInterface {
 
        //catch annidato delle eccezioni	
 			
-//			} catch(EccezioneNoCoord e) {
+//			} catch(EccezioneCoordErrate e) {
 //				e.getMex();
 		} catch(IOException e) {	  
 			e.printStackTrace();
@@ -166,7 +168,8 @@ public class WeatherService implements WeatherServiceInterface {
 	@SuppressWarnings("unchecked")
 	@Override
 	public JSONObject toJSON(Citta city) {
-		//creo JSON Object con 2 parametri { }
+		
+		//creo JSON Object { }
 		JSONObject output =new JSONObject();
 		output.put("Città", city.getNome());
 		output.put("id", city.getid());
@@ -176,7 +179,6 @@ public class WeatherService implements WeatherServiceInterface {
 		//creo JSON Array [ ]
 		JSONArray meteoList= new JSONArray(); //inizializzo JSONArray
 		JSONObject ob=new JSONObject();
-		InformazioniMeteo infoMeteo=new InformazioniMeteo();
 
 		ob.put( "umidità", (city.getInfoMeteo()).getUmidita() );
 		ob.put( "temp effettiva", (city.getInfoMeteo()).getTempEff() );

@@ -43,17 +43,17 @@ public class WeatherController {
 
 		JSONObject datiMeteo = null;
 		
-//	if(lat ==0 || lon==0) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
+//	if( (lat<-180 || lat>180) || (lon<-180 || lon>180) throw new EccezioneCoordErrate();
 // oppure
 		try {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
-// throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
+// throw new EccezioneCoordErrate();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
 		
-//		catch (EccezioneNoCoord e) {
+//		catch (EccezioneCoordErrate e) {
 //			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);
 //		}
 		

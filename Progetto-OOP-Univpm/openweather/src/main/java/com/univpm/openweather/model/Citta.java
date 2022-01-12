@@ -17,6 +17,25 @@ public class Citta {
 	private InformazioniMeteo infoMeteo; //attributo che contiene info meteo della città
 
 	/**
+	 * Costruttori utili:
+	 */
+	
+	/**
+	 * Costruttore di default
+	 */
+	public Citta() {
+		
+	}
+	/**
+	 * Costruttore con coordinate in input
+	 * @param Coordinate
+	 */
+	public Citta(Coordinate coord) {
+		this.coordinate=coord;
+	}
+	
+	
+	/**
 	 * Metodi Getters che restituiscono tutti gli attributi della città
 	 */
 	public Coordinate getCoordinate() {

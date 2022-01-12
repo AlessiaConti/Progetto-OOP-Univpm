@@ -13,6 +13,19 @@ public class InformazioniMeteo {
 	private double tempPer;
 	private long umidità; //data in %
 	private String data; //espressa con sistema 'unix, UTC'
+	
+	/**
+	 * Costruttori utili
+	 */
+	public InformazioniMeteo() {
+		
+	}
+	public InformazioniMeteo(long umidità, double tempEff, double tempPer, String data) {
+		this.umidità=umidità;
+		this.tempEff=tempEff;
+		this.tempPer=tempPer;
+		this.data=data;
+	}
 
 	/**
 	 * Metodi Getters che restituiscono le informazioni meteo
