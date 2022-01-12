@@ -1,9 +1,6 @@
 package com.univpm.openweather.service;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +14,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
+import com.univpm.openweather.exception.EccezioneNoCoord;
+import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
 
 /**
@@ -33,7 +32,6 @@ public class WeatherService implements WeatherServiceInterface {
 	//api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 	private String url="http://api.openweathermap.org/data/2.5/weather?";
 
-	//ora implemento i metodi che nell'interfaccia erano astratti
 
 	/** 
 	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
@@ -41,9 +39,11 @@ public class WeatherService implements WeatherServiceInterface {
 	 * @param double lat
 	 * @param double lon
 	 * @return JSONObject contenente i dati meteo
+	 * @throws
 	 */
 	@Override
-	public JSONObject readJSON(double lat, double lon) {
+	public JSONObject readJSON(double lat, double lon) throws EccezioneNoCoord {
+
 		JSONObject meteo=null;
 
 		try { 
@@ -54,6 +54,8 @@ public class WeatherService implements WeatherServiceInterface {
 
 			String data= " ";
 			String line= " ";
+
+			// if(lat ==2) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
 
 			try {
 				InputStreamReader inR= new InputStreamReader(in);
@@ -69,6 +71,8 @@ public class WeatherService implements WeatherServiceInterface {
 			meteo=(JSONObject) JSONValue.parseWithException(data); 
 
 			//catch annidato delle eccezioni	
+			//			} catch(EccezioneNoCoord e) {
+			//				e.getMex();
 		} catch(IOException e) {	  
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -78,7 +82,7 @@ public class WeatherService implements WeatherServiceInterface {
 		return meteo;
 	}
 
-	
+
 	/** 
 	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
 	 * passando come parametro il nome della città (utilizzato per la rotta /getWeatherbyName)
@@ -151,7 +155,7 @@ public class WeatherService implements WeatherServiceInterface {
 		return city;
 	}
 
-	
+
 	/**
 	 * Questo metodo serve per costruire la struttura del JSON da restituire all'utente
 	 * @param oggetto di tipo Citta 

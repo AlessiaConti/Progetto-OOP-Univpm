@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.univpm.openweather.IO.SalvaDati;
+import com.univpm.openweather.exception.EccezioneBadRequest;
+import com.univpm.openweather.exception.EccezioneNoCoord;
 import com.univpm.openweather.service.WeatherService;
 
 /**
- * Controller che gestisce le chiamate al server che il client può fare per ricevere i dati meteo di una città
+ * Classe contenente le richieste per ottenere dati meteo di una città (temp.eff.,temp.perc. e umidità)
  */
 
 @Controller 
@@ -36,20 +38,27 @@ public class WeatherController {
 	 * @throws IOException
 	 * */
 	@RequestMapping(value="/getWeather")                
-	public ResponseEntity<Object> getWeather(
-			@RequestParam(name="lat") double lat, 
-			@RequestParam (name="lon") double lon) 
-					throws IOException { 
+	public ResponseEntity<Object> getWeather( @RequestParam(name="lat") double lat, 
+			                                                   @RequestParam (name="lon") double lon) 
+					                                                throws IOException, EccezioneNoCoord { 
 
 		JSONObject datiMeteo = null;
-
+		
+//	if(lat ==0 || lon==0) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
 		try {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
+//			throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} 
+		
+//		catch (EccezioneNoCoord e) {
+//			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);
+//		}
+		
 		return new ResponseEntity<> (datiMeteo, HttpStatus.OK);
+		
 	} 	
 
 
@@ -62,7 +71,7 @@ public class WeatherController {
 	 * @return JSONObject contenente la data e le previsioni meteo
 	 * */
 	@RequestMapping(value="/getWeatherbyName")                
-	public ResponseEntity<Object> getWeatherbyName(@RequestParam(name="city") String city) { 
+	public ResponseEntity<Object> getWeatherbyName(@RequestParam(name="city") String city) throws IOException { 
 		return new ResponseEntity<> (service.toJSON(service.getMeteo(service.readJSONbyName(city))), HttpStatus.OK);
 	} 
 

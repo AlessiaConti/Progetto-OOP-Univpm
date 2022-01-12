@@ -1,13 +1,10 @@
 package com.univpm.openweather.stats;
 
-import org.json.simple.JSONArray;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.Vector;
 
-import org.json.simple.*;
+import org.json.simple.parser.ParseException;
 
 import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
@@ -17,10 +14,14 @@ import com.univpm.openweather.model.*;
  * 
  * @param indice int
  * @return vettCitta
- * @throws IOException, org.json.simple.parser.ParseException, FileNotFoundException, EccezionePersonalizzata
+ * @throws IOException
+ * @throws ParseException
+ * @throws FileNotFoundException
+ * @throws IndexOutOfBoundsException
+ * @throws EccezionePersonalizzata
  */
 
 public interface StatsInterface {
-	public abstract Vector<Citta> getMeteoArray(int indice) throws IOException,FileNotFoundException, org.json.simple.parser.ParseException, EccezionePersonalizzata;
+	public abstract Vector<Citta> getMeteoArray(int indice) throws IOException, FileNotFoundException, ParseException, IndexOutOfBoundsException, EccezionePersonalizzata;
 
 }
