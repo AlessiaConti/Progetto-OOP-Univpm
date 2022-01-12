@@ -67,7 +67,8 @@ Con questa rotta devono essere inserite le coordinate della città di interesse.
 
 Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un salvataggio in locale dei dati in un file di testo (che viene salvato nel path indicato in rosso)
 
-![Immagine1.2](https://user-images.githubusercontent.com/91316014/148812290-d793d63a-1346-4000-9077-7de9e4c750de.png)
+![im](https://user-images.githubusercontent.com/91316014/149120049-0da903d5-7984-45fc-84b3-dbb3045a2f5f.png)
+
 
 ***
 
