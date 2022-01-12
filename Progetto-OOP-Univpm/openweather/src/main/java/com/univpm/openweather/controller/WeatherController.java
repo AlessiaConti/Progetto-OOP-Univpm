@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.univpm.openweather.IO.SalvaDati;
-import com.univpm.openweather.exception.EccezioneBadRequest;
-import com.univpm.openweather.exception.EccezioneNoCoord;
+import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.service.WeatherService;
 
 /**
@@ -40,15 +39,16 @@ public class WeatherController {
 	@RequestMapping(value="/getWeather")                
 	public ResponseEntity<Object> getWeather( @RequestParam(name="lat") double lat, 
 			                                                   @RequestParam (name="lon") double lon) 
-					                                                throws IOException, EccezioneNoCoord { 
+					                                                throws IOException, EccezioneCoordErrate { 
 
 		JSONObject datiMeteo = null;
 		
 //	if(lat ==0 || lon==0) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
+// oppure
 		try {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
-//			throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
+// throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 

@@ -2,7 +2,6 @@ package com.univpm.openweather.exception;
 
 import java.util.Scanner;
 
-
 /**
  * Eccezione per gestire un numero non incluso tra 1 e 30 nell'indice di filtraggio
  * 
@@ -22,9 +21,7 @@ public class EccezionePersonalizzata extends Exception  {
 	 * 
 	 * @param errore String
 	 */
-	public EccezionePersonalizzata(String errore) {
-
-	};
+	public EccezionePersonalizzata(String errore) {};
 
 	/** 
 	 * Metodo che chiede all'utente di inserire un nuovo indice in caso di errore
