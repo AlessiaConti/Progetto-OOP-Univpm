@@ -13,7 +13,7 @@
   * [**/getWeatherbyName**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#2-getweatherbyname)
   * [**/getFilters**](https://github.com/FabiocchiF/Progetto-OOP-Univpm#4-getfilters)
   * [Dizionario](https://github.com/FabiocchiF/Progetto-OOP-Univpm/blob/main/README.md#dizionario)
-  * [Eccezioni]()
+  * [Eccezioni](https://github.com/FabiocchiF/Progetto-OOP-Univpm#eccezioni)
 * [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
 * [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
 * [Struttura del progetto](https://github.com/FabiocchiF/Progetto-OOP-Univpm#struttura-del-progetto)
@@ -33,7 +33,7 @@ L'applicazione permette quindi di:
 - [ ] Gestire possibili errori dovuti a inserimento di coordinate errate
 - [ ] Facilitare inserimento delle coordinate con possibilità di ricercarle tramite un dizionario statico
 - [x] Ottenere statistiche riguardanti valori min max media e varianza di umidità, temp effettiva e percepita
-- [x] Scegliere filtraggio delle statistiche in base alla periodicità: giornaliera, settimanale, mensile
+- [x] Scegliere filtraggio delle statistiche in base alla periodicità: range personalizzabile
 
 
 
@@ -105,11 +105,15 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 
 ![55ea4486d7657c99e4baa9eb216ea2e7](https://user-images.githubusercontent.com/91212564/148922591-525ef1f3-13bf-4b05-b880-ba93062e8185.png)
 
+
+**Eccezione CoordErrate** (da finire)
+
+
 ## Test
 
-Sono stati implementati i seguenti test per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni:
-- [x] **Test del model ->** Implementate classi per testare gli oggetti *Citta* e *Coordinate*
-- [x] **Test del service ->** WeatherServiceTest: classe per testare in particolare il metodo *toJSON*
+Per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni sono stati implementati i seguenti test:
+- [x] **Test model ->** Implementate classi per testare gli oggetti *Citta* e *Coordinate*
+- [x] **Test service ->** WeatherServiceTest: classe per testare in particolare il metodo *toJSON*
 
 ![image](https://user-images.githubusercontent.com/91316014/149234191-a4b73aa8-f818-47cc-a3a0-ab2efeb290ca.png)
 
@@ -130,6 +134,7 @@ Tutto il progetto è documentato in [Javadoc]().
     * WeatherController
   * **exception**
     * EccezionePersonalizzata
+    * EccezioneCoordErrate
   * **filters**
     * FiltersImpl
     * FiltersInterface
