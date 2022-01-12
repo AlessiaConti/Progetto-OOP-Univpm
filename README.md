@@ -16,7 +16,7 @@
   * [Eccezioni]()
 * [Test](https://github.com/FabiocchiF/Progetto-OOP-Univpm#test)
 * [Documentazione](https://github.com/FabiocchiF/Progetto-OOP-Univpm#documentazione)
-* [Struttura del progetto]()
+* [Struttura del progetto](https://github.com/FabiocchiF/Progetto-OOP-Univpm#struttura-del-progetto)
 * [Software utilizzati](https://github.com/FabiocchiF/Progetto-OOP-Univpm#software-utilizzati)
 * [Autori](https://github.com/FabiocchiF/Progetto-OOP-Univpm#autori)
 
