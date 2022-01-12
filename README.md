@@ -111,7 +111,7 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 
 ## Test
 
-Per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni sono stati implementati i seguenti test:
+Per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni, sono stati implementati i seguenti test:
 - [x] **Test model ->** Implementate classi per testare gli oggetti *Citta* e *Coordinate*
 - [x] **Test service ->** WeatherServiceTest: classe per testare in particolare il metodo *toJSON*
 
