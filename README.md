@@ -124,7 +124,7 @@ Tutto il progetto è documentato in [Javadoc]().
 * MAIN
 
   * **IO**
-    * Salva dati
+    * SalvaDati
   * **controller**
     * StatController
     * WeatherController
