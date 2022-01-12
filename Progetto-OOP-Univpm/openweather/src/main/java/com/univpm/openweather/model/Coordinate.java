@@ -34,10 +34,10 @@ public class Coordinate {
 	/**
 	 * Metodi Setters che settano latitudine e longitudine
 	 */
-	public void setLon(int lon) {
+	public void setLon(double lon) {
 		this.lon = lon;
 	}
-	public void setLat(int lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
 

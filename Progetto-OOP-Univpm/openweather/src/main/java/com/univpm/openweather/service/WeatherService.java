@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
+import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.exception.EccezioneNoCoord;
 import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
@@ -42,7 +43,7 @@ public class WeatherService implements WeatherServiceInterface {
 	 * @throws
 	 */
 	@Override
-	public JSONObject readJSON(double lat, double lon) throws EccezioneNoCoord {
+	public JSONObject readJSON(double lat, double lon) throws EccezioneCoordErrate {
 
 		JSONObject meteo=null;
 
@@ -55,7 +56,7 @@ public class WeatherService implements WeatherServiceInterface {
 			String data= " ";
 			String line= " ";
 
-			// if(lat ==2) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
+	// if(lat ==0 || lon==0) throw new EccezioneNoCoord("Hai dimenticato di inserire le coord...");
 
 			try {
 				InputStreamReader inR= new InputStreamReader(in);
@@ -70,9 +71,10 @@ public class WeatherService implements WeatherServiceInterface {
 			//effettuo il parsing in JSON Object
 			meteo=(JSONObject) JSONValue.parseWithException(data); 
 
-			//catch annidato delle eccezioni	
-			//			} catch(EccezioneNoCoord e) {
-			//				e.getMex();
+       //catch annidato delle eccezioni	
+			
+//			} catch(EccezioneNoCoord e) {
+//				e.getMex();
 		} catch(IOException e) {	  
 			e.printStackTrace();
 		} catch (Exception e) {
