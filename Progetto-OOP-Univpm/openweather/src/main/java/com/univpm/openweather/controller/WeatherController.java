@@ -43,12 +43,12 @@ public class WeatherController {
 
 		JSONObject datiMeteo = null;
 		
-//	if( (lat<-180 || lat>180) || (lon<-180 || lon>180) throw new EccezioneCoordErrate();
+//	if( (lat<-180 || lat>180) || (lon<-180 || lon>180) throw new EccezioneCoordErrate("Hai inserito coordinate errate!");
 // oppure
 		try {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
-// throw new EccezioneCoordErrate();
+// throw new EccezioneCoordErrate("Hai inserito coordinate errate!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 

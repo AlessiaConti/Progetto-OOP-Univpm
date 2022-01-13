@@ -4,39 +4,32 @@ package com.univpm.openweather.exception;
 /**
  * Eccezione per gestire possibili errori dovuti a inserimento di coordinate errate
  * 
- * @author A.Conti
  */
 
 public class EccezioneCoordErrate extends Exception {
 
 	private static final long serialVersionUID = 1L;
+	String mex;
 
 	/**
-	 * Costruttore che richiama superclasse e stampa messaggio di errore
+	 * Costruttore che richiama superclasse e riceve in ingresso un messaggio di errore personalizzato
+	 * ( "Hai inserito coordinate errate!" )
+	 * 
+	 * @param mex rappresenta il messaggio di errore.
 	 */
-	public EccezioneCoordErrate() {
+	public EccezioneCoordErrate(String mex) {
 		super();
-		System.out.println("Hai inserito coordinate errate!");
+		this.mex = mex;
 	}
 
-	/** 
-	 * Costruttore che riceve in ingresso un messaggio di errore personalizzato
+	/**
+	 * Restituisce un messaggio di errore passato dal costruttore quando le coord inserite sono sbagliate
 	 * 
-	 * @param mex String
+	 * @return String che contiene il messaggio d'errore che viene stampato.
 	 */
-	public EccezioneCoordErrate (String mex) {
-		super(mex);
-		System.out.println("Hai inserito coordinate errate!"+mex);
-	};
+	public String getMex() {
+		return mex;
+	}
 
-	/** 
-	 * Metodo che restituisce il dizionario
-	 * 
-	 */
-	//	public void getDizionario(String nomeCitta, String id) {
-	//		Dizionario diz = new Dizionario();
-	//		diz.getCoordinateNome(nomeCitta);
-	//		diz.getCoordinateiD(id);
-	//	}
 
 }
