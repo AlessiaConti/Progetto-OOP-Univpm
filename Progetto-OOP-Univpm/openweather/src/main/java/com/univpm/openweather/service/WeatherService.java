@@ -58,7 +58,7 @@ public class WeatherService implements WeatherServiceInterface {
 			String data= " ";
 			String line= " ";
 
-	// if((lat<-180 || lat>180) || (lon<-180 || lon>180)) throw new EccezioneCoordErrate( );
+	// if((lat<-180 || lat>180) || (lon<-180 || lon>180)) throw new EccezioneCoordErrate("Hai inserito coordinate errate!");
 
 			try {
 				InputStreamReader inR= new InputStreamReader(in);
