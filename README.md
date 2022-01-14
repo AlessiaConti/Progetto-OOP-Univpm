@@ -96,6 +96,19 @@ Per questioni di tempo il filtraggio viene eseguito sul file locale "AnconaStats
 
 ### Dizionario
 
+In caso siano state inserite coordinate errate da parte dell'utente, quest ultimo ha la possibilità di consultare il dizionario statico tramite il quale potrà ottenere in output 
+le coordinate corrette inserendo il nome o l'identificativo della città richiesta.
+Il dizionario contiene il nome, l'identifiativo e le coordinate di cinque città italiane: Ancona, Pescara, Catania, Milano e Firenze.
+La classe **dizionario** comprende due metodi:
+
+*getCoordinateNome(citta)* restituisce in output le coordinate associate al nome della città inserita.
+
+![NomeCoord4](https://user-images.githubusercontent.com/95362575/149492787-a59387bc-d809-4083-b7bb-c927d4879bb5.png)
+
+*getCoordinateiD(iD)* restituisce in output le coordinate associate all'ID della città inserita.
+
+![IdCoord4](https://user-images.githubusercontent.com/95362575/149492567-1acc0e8e-f99a-42c7-8891-d470cbc397cb.png)
+
 ***
 
 ### Eccezioni
