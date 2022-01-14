@@ -23,7 +23,7 @@ public class EccezioneCoordErrate extends Exception {
 	}
 
 	/**
-	 * Restituisce un messaggio di errore passato dal costruttore quando le coord inserite sono sbagliate
+	 * Metodo che restituisce un messaggio di errore passato dal costruttore quando le coord inserite sono sbagliate
 	 * 
 	 * @return String che contiene il messaggio d'errore che viene stampato.
 	 */

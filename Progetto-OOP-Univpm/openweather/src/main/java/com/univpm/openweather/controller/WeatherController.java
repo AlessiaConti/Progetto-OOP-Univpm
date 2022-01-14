@@ -20,10 +20,14 @@ import com.univpm.openweather.service.WeatherService;
 
 @Controller 
 public class WeatherController {
+	/**
+	 * Creo un oggetto di tipo 'weatherService' per usare le sue funzionalità
+	 * e un oggetto stampa preposto a stampare in locale un file contenente i dati meteo
+	 */
 	@Autowired
-	private WeatherService service; //creo un oggetto weatherService per usare le sue funzionalità (metodi)
+	private WeatherService service; 
 	@Autowired
-	private SalvaDati stampa; //creo un oggetto stampa preposto a stampare in locale un file contenente i dati meteo
+	private SalvaDati stampa; 
 
 	/**
 	 * Rotta che mostra le informazioni meteo relative a umidità, temperatura effettiva e
@@ -39,8 +43,8 @@ public class WeatherController {
 	 * */
 	@RequestMapping(value="/getWeather")                
 	public ResponseEntity<Object> getWeather( @RequestParam(name="lat") double lat, 
-			                                                   @RequestParam (name="lon") double lon) 
-					                                                throws IOException, EccezioneCoordErrate { 
+			@RequestParam (name="lon") double lon) 
+					throws IOException, EccezioneCoordErrate { 
 
 		JSONObject datiMeteo = null;
 
@@ -52,7 +56,6 @@ public class WeatherController {
 			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);
 		} 
 
-		
 	} 	
 
 

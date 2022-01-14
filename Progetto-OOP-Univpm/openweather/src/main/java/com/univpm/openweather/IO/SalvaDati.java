@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 
 import org.json.simple.*;
 import org.springframework.stereotype.Service;
+
+import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.service.*;
 
 /**
@@ -26,7 +28,7 @@ public class SalvaDati {
 	 * @return "Stampa avvenuta"
 	 * @throws IoException
 	 */
-	public String stampaMeteo(JSONObject obj) throws IOException{
+	public String stampaMeteo(JSONObject obj) throws IOException, EccezioneCoordErrate {
 
 		try {
 

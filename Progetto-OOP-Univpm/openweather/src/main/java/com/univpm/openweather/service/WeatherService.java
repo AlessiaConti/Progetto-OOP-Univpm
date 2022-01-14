@@ -15,7 +15,6 @@ import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
 import com.univpm.openweather.exception.EccezioneCoordErrate;
-import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
 
 /**
@@ -56,9 +55,9 @@ public class WeatherService implements WeatherServiceInterface {
 			JSONObject meteo=null;
 
 			try { 
-				//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
+				/**stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita*/
 				URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
-				//metto il file generato da url su un input stream
+				/**metto il file generato da url su un input stream*/
 				InputStream in= openConnection.getInputStream();
 
 				String data= " ";
@@ -74,10 +73,10 @@ public class WeatherService implements WeatherServiceInterface {
 				} finally {
 					in.close();
 				}
-				//effettuo il parsing in JSON Object
+				/**effettuo il parsing in JSON Object*/
 				meteo=(JSONObject) JSONValue.parseWithException(data); 
 
-				//catch annidato delle eccezioni	
+				/**catch annidato delle eccezioni*/	
 			} catch(IOException e) {	  
 				e.printStackTrace();
 			} catch (Exception e) {
@@ -101,9 +100,7 @@ public class WeatherService implements WeatherServiceInterface {
 		JSONObject meteo=null;
 
 		try { 
-			//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
 			URLConnection openConnection= new URL (url+"q="+city+ "&appid="+apiKey).openConnection();
-			//metto il file generato da url su un input stream
 			InputStream in= openConnection.getInputStream();
 
 			String data= " ";
@@ -119,10 +116,9 @@ public class WeatherService implements WeatherServiceInterface {
 			} finally {
 				in.close();
 			}
-			//effettuo il parsing in JSON Object
+
 			meteo=(JSONObject) JSONValue.parseWithException(data); 
 
-			//catch annidato delle eccezioni	
 		} catch(IOException e) {	  
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -146,13 +142,13 @@ public class WeatherService implements WeatherServiceInterface {
 		city.setNome((String) obj.get("name"));
 		city.setid(String.valueOf(obj.get("id")));
 
-		infoMeteo.setData(String.valueOf (obj.get("dt"))); //per prendere la data
-		//ora converto la data dal formato Unix a UTC
+		infoMeteo.setData(String.valueOf (obj.get("dt"))); /**per prendere la data*/
+		/**ora converto la data dal formato Unix a UTC*/
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
 		String today = date.format(new Date());
 		infoMeteo.setData(today);
 
-		JSONObject mainData=(JSONObject)obj.get("main"); //per leggere oggetto JSON ''main''
+		JSONObject mainData=(JSONObject)obj.get("main"); /**per leggere oggetto JSON ''main''*/
 
 		infoMeteo.setUmidita((long) mainData.get("humidity"));
 		infoMeteo.setTempEff((double) mainData.get("temp"));
@@ -172,15 +168,15 @@ public class WeatherService implements WeatherServiceInterface {
 	@Override
 	public JSONObject toJSON(Citta city) {
 
-		//creo JSON Object { }
+		/** creo JSON Object { } */
 		JSONObject output =new JSONObject();
 		output.put("Città", city.getNome());
 		output.put("id", city.getid());
 
-		output.put( "Data", (city.getInfoMeteo()).getData() ); //per restituire la data
+		output.put( "Data", (city.getInfoMeteo()).getData() ); /**per restituire la data*/
 
-		//creo JSON Array [ ]
-		JSONArray meteoList= new JSONArray(); //inizializzo JSONArray
+		/** creo JSON Array [ ] */
+		JSONArray meteoList= new JSONArray(); /**inizializzo JSONArray*/
 		JSONObject ob=new JSONObject();
 
 		ob.put( "umidità", (city.getInfoMeteo()).getUmidita() );

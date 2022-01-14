@@ -26,7 +26,7 @@ import com.univpm.openweather.model.*;
 public class StatController {
 	@Autowired
 	private FiltersImpl filtersImpl;
-	
+
 	/**
 	 * Richiesta GET che tramite scelta di statistica e filtro esegue tale filtro in un intervallo da 1 a 30 giorni
 	 * 
@@ -36,7 +36,7 @@ public class StatController {
 	 * @return  ResponseEntity<Vector<Citta>>
 	 * @throws FileNotFoundException, IOException, ParseException
 	 */
-	
+
 	@RequestMapping(value = "/getFilters")
 	public ResponseEntity<Vector<Citta>> getFilters(@RequestParam(name = "frequenza")int frequenza,@RequestParam(name = "stat")String stat,@RequestParam(name = "filtro")String filtro) throws FileNotFoundException, IOException, ParseException { //mettere param tipo filtro
 		return new ResponseEntity<Vector<Citta>> (filtersImpl.meteo_filtri(filtro, stat, frequenza),HttpStatus.OK);
