@@ -131,9 +131,9 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 
 Per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni, sono stati implementati i seguenti test:
 - [x] **Test model ->** Implementate classi per testare gli oggetti *Citta* e *Coordinate*
-- [x] **Test service ->** WeatherServiceTest: classe per testare in particolare il metodo *toJSON*
+- [x] **Test service ->** WeatherServiceTest: classe per testare il metodo *toJSON* e l'eccezione *EccezioneCoordErrate*
 
-![image](https://user-images.githubusercontent.com/91316014/149234191-a4b73aa8-f818-47cc-a3a0-ab2efeb290ca.png)
+![image](https://user-images.githubusercontent.com/91316014/149515243-f68822d4-6a0f-455b-b0c4-147e24c7e81d.png)
 
 
 
