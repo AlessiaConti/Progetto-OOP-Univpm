@@ -1,5 +1,7 @@
 package com.univpm.openweather.service;
 
+import java.io.IOException;
+
 import org.json.simple.JSONObject;
 
 import com.univpm.openweather.exception.EccezioneCoordErrate;
@@ -15,8 +17,8 @@ public interface WeatherServiceInterface {
 
 	//metodi astratti
 
-	//metodi utili per la rotta /getWeather(byCoord)
-	public abstract JSONObject readJSON(double lat, double lon);
+	//metodi utili per la rotta /getWeather
+	public abstract JSONObject readJSON(double lat, double lon) throws IOException, EccezioneCoordErrate ;
 	public abstract Citta getMeteo(JSONObject obj);
 	public abstract JSONObject toJSON(Citta city);
 

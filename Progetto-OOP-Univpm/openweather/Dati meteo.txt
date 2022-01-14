@@ -1,1 +1,1 @@
-{"Data":"2022-01-13","Città":"Provincia di Ancona","id":"3183087","Info meteo":[{"umidità":64,"temp percepita":275.55,"temp effettiva":277.37}]}
+{"Data":"2022-01-14","Città":"Provincia di Ancona","id":"3183087","Info meteo":[{"umidità":40,"temp percepita":281.17,"temp effettiva":282.8}]}

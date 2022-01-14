@@ -42,48 +42,51 @@ public class WeatherService implements WeatherServiceInterface {
 	 * @param double lat
 	 * @param double lon
 	 * @return JSONObject contenente i dati meteo
-	 * @throws
+	 * @throws EccezioneCoordErrate se le coordinate inserite sono <-180 o >180
 	 */
 	@Override
-	public JSONObject readJSON(double lat, double lon) {
+	public JSONObject readJSON(double lat, double lon) throws IOException, EccezioneCoordErrate {
 
-		JSONObject meteo=null;
+		if((lat<-180 || lat>180) && (lon<-180 || lon>180)) throw new EccezioneCoordErrate("Le coordinate inserite sono errate!");
+		else if (lat<-180 || lat>180) throw new EccezioneCoordErrate("La latitudine inserita è errata!");
+		else if (lon<-180 || lon>180) throw new EccezioneCoordErrate("La longitudine inserita è errata!");
 
-		try { 
-			//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
-			URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
-			//metto il file generato da url su un input stream
-			InputStream in= openConnection.getInputStream();
+		else {
 
-			String data= " ";
-			String line= " ";
+			JSONObject meteo=null;
 
-	// if((lat<-180 || lat>180) || (lon<-180 || lon>180)) throw new EccezioneCoordErrate("Hai inserito coordinate errate!");
+			try { 
+				//stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita
+				URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
+				//metto il file generato da url su un input stream
+				InputStream in= openConnection.getInputStream();
 
-			try {
-				InputStreamReader inR= new InputStreamReader(in);
-				BufferedReader buf= new BufferedReader(inR);
+				String data= " ";
+				String line= " ";
 
-				while((line= buf.readLine() ) != null) {
-					data+=line;
-				} 
-			} finally {
-				in.close();
+				try {
+					InputStreamReader inR= new InputStreamReader(in);
+					BufferedReader buf= new BufferedReader(inR);
+
+					while((line= buf.readLine() ) != null) {
+						data+=line;
+					} 
+				} finally {
+					in.close();
+				}
+				//effettuo il parsing in JSON Object
+				meteo=(JSONObject) JSONValue.parseWithException(data); 
+
+				//catch annidato delle eccezioni	
+			} catch(IOException e) {	  
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			//effettuo il parsing in JSON Object
-			meteo=(JSONObject) JSONValue.parseWithException(data); 
 
-       //catch annidato delle eccezioni	
-			
-//			} catch(EccezioneCoordErrate e) {
-//				e.getMex();
-		} catch(IOException e) {	  
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
+			return meteo;
+
 		}
-
-		return meteo;
 	}
 
 
@@ -168,7 +171,7 @@ public class WeatherService implements WeatherServiceInterface {
 	@SuppressWarnings("unchecked")
 	@Override
 	public JSONObject toJSON(Citta city) {
-		
+
 		//creo JSON Object { }
 		JSONObject output =new JSONObject();
 		output.put("Città", city.getNome());

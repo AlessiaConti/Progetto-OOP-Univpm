@@ -3,6 +3,7 @@ package com.univpm.openweather.exception;
 
 /**
  * Eccezione per gestire possibili errori dovuti a inserimento di coordinate errate
+ * @author A.Conti
  * 
  */
 
@@ -13,7 +14,6 @@ public class EccezioneCoordErrate extends Exception {
 
 	/**
 	 * Costruttore che richiama superclasse e riceve in ingresso un messaggio di errore personalizzato
-	 * ( "Hai inserito coordinate errate!" )
 	 * 
 	 * @param mex rappresenta il messaggio di errore.
 	 */
