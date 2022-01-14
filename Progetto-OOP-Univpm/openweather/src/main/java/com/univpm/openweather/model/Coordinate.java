@@ -6,9 +6,7 @@ package com.univpm.openweather.model;
 
 public class Coordinate {
 
-	/**
-	 * Attributi
-	 */
+	/** Attributi*/
 	private double lon;
 	private double lat;
 

@@ -15,14 +15,14 @@ import com.univpm.openweather.model.Citta;
 
 public interface WeatherServiceInterface {
 
-	//metodi astratti
+	/**metodi astratti*/
 
-	//metodi utili per la rotta /getWeather
+	/**metodi utili per la rotta /getWeather */
 	public abstract JSONObject readJSON(double lat, double lon) throws IOException, EccezioneCoordErrate ;
 	public abstract Citta getMeteo(JSONObject obj);
 	public abstract JSONObject toJSON(Citta city);
 
-	//metodi per la rotta aggiuntiva /getWeatherbyName
+	/**metodi per la rotta aggiuntiva /getWeatherbyName */
 	public abstract JSONObject readJSONbyName(String city); 
 
 }

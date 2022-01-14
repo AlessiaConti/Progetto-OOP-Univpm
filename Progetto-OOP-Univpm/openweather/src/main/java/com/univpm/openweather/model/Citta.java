@@ -6,25 +6,19 @@ package com.univpm.openweather.model;
 
 public class Citta {
 
-	/**
-	 * attributi che caratterizzano ogni città
-	 */
+	/** Attributi che caratterizzano ogni città*/
 	private String id;
 	private String nome;
 	private String paese;
 
-	private Coordinate coordinate; //attributo di tipo 'coordinate' (lon e lat della città)
-	private InformazioniMeteo infoMeteo; //attributo che contiene info meteo della città
+	private Coordinate coordinate; /**attributo di tipo 'coordinate' (lon e lat della città)*/
+	private InformazioniMeteo infoMeteo; /**attributo che contiene info meteo della città*/
 
-	/**
-	 * Costruttori utili:
-	 */
-	
-	/**
-	 * Costruttore di default
-	 */
+
+	/** Costruttori utili: */
+
+	/** Costruttore di default*/
 	public Citta() {
-		
 	}
 	/**
 	 * Costruttore con coordinate in input
@@ -33,8 +27,8 @@ public class Citta {
 	public Citta(Coordinate coord) {
 		this.coordinate=coord;
 	}
-	
-	
+
+
 	/**
 	 * Metodi Getters che restituiscono tutti gli attributi della città
 	 */
@@ -74,6 +68,7 @@ public class Citta {
 		this.infoMeteo = infoMeteo;
 	}
 
+	
 	/**
 	 * Override del metodo toString.
 	 * @return String (stringa che rappresenta la città)
