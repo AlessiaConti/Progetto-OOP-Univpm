@@ -30,8 +30,8 @@ Tramite questa API il programma riceve, salva ed elabora i dati meteo riguardant
 L'applicazione permette quindi di:
 - [x] Ottenere informazioni meteo (umidità, temp effettiva e percepita) della città inserita dall'utente
 - [x] Salvare dati in locale
-- [ ] Gestire possibili errori dovuti a inserimento di coordinate errate
-- [ ] Facilitare inserimento delle coordinate con possibilità di ricercarle tramite un dizionario statico
+- [x] Gestire possibili errori dovuti a inserimento di coordinate errate
+- [x] Facilitare inserimento delle coordinate con possibilità di ricercarle tramite un dizionario statico
 - [x] Ottenere statistiche riguardanti valori min max media e varianza di umidità, temp effettiva e percepita
 - [x] Scegliere filtraggio delle statistiche in base alla periodicità: range personalizzabile
 
