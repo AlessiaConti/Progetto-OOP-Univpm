@@ -35,6 +35,7 @@ public class WeatherController {
 	 * @param double lon
 	 * @return datiMeteo
 	 * @throws IOException
+	 * @throws EccezioneCoordErrate
 	 * */
 	@RequestMapping(value="/getWeather")                
 	public ResponseEntity<Object> getWeather( @RequestParam(name="lat") double lat, 
@@ -42,22 +43,15 @@ public class WeatherController {
 					                                                throws IOException, EccezioneCoordErrate { 
 
 		JSONObject datiMeteo = null;
-		
-//	if( (lat<-180 || lat>180) || (lon<-180 || lon>180) throw new EccezioneCoordErrate("Hai inserito coordinate errate!");
-// oppure
+
 		try {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
-// throw new EccezioneCoordErrate("Hai inserito coordinate errate!");
-		} catch (IOException e) {
-			e.printStackTrace();
+			return new ResponseEntity<> (datiMeteo, HttpStatus.OK);
+		} catch (EccezioneCoordErrate e) {
+			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);
 		} 
-		
-//		catch (EccezioneCoordErrate e) {
-//			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);
-//		}
-		
-		return new ResponseEntity<> (datiMeteo, HttpStatus.OK);
+
 		
 	} 	
 

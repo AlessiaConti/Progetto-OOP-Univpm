@@ -3,21 +3,20 @@ package com.univpm.openweather.service;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.model.Citta;
 import com.univpm.openweather.model.Coordinate;
 import com.univpm.openweather.model.InformazioniMeteo;
 
 /**
  * Classe che testa il metodo toJSON di WeatherService
+ * e l'eccezione personalizzata EccezioneCoordErrate
  * @author A.Conti
  *
  */
@@ -93,7 +92,15 @@ class WeatherServiceTest {
 
 		// assertEquals ( expected, actual )
 		assertEquals(output.toString(), ws.toJSON(city).toString());
-
+	}
+	
+	/**
+	 * Metodo che testa l'eccezione personalizzata EccezioneCoordErrate
+	 */
+	@Test
+	void EccCoordErrateTest() {
+		// assertThrows(expected type, executable)
+		assertThrows (EccezioneCoordErrate.class, ()-> ws.readJSON(181, -181));
 	}
 
 }
