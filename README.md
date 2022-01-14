@@ -119,7 +119,12 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 ![55ea4486d7657c99e4baa9eb216ea2e7](https://user-images.githubusercontent.com/91212564/148922591-525ef1f3-13bf-4b05-b880-ba93062e8185.png)
 
 
-**Eccezione CoordErrate** (da finire)
+**Eccezione CoordErrate** stampa un messaggio di errore nel caso in cui le coordinate inserite dall'utente tramite la rotta */getWeather* sono errate, cioè se entrambi i parametri lat e lon inseriti (o uno dei due) sono minori di -180 o maggiori di 180.
+
+![errrrr](https://user-images.githubusercontent.com/91316014/149511371-d60c9323-b5fb-4d1d-b3a0-9e06634539ae.png)
+![image](https://user-images.githubusercontent.com/91316014/149511106-ee55dd7e-18a9-428a-8f60-28c5ed0b4d11.png)
+![image](https://user-images.githubusercontent.com/91316014/149510577-32034987-a594-4871-b9ef-aae831bc14b2.png)
+
 
 
 ## Test
