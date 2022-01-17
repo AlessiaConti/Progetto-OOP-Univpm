@@ -70,7 +70,7 @@ Inoltre, dopo aver effettuato la richiesta, sarà effettuato automaticamente un 
 
 ![im](https://user-images.githubusercontent.com/91316014/149120049-0da903d5-7984-45fc-84b3-dbb3045a2f5f.png)
 
-Questa rotta prevede l'eccezione personalizzata *EccezioneCoordErrate* nel caso in cui l'utente inserisce coordinate errate, e permette di usare il dizionario per facilitarne l'inserimento.
+Questa rotta prevede l'eccezione personalizzata [*EccezioneCoordErrate*](https://github.com/FabiocchiF/Progetto-OOP-Univpm#eccezioni) nel caso in cui l'utente inserisce coordinate errate, e permette di usare il dizionario per facilitarne l'inserimento.
  
 
 ***
