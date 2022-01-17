@@ -54,6 +54,7 @@ class WeatherServiceTest {
 	/**
 	 * Metodo che testa toJSON() , cioè verifica se l'oggetto Citta (appositamente creato) 
 	 * viene convertito correttamente in JSONObject.
+	 * @throws IOException
 	 */
 	@SuppressWarnings("unchecked")
 	@Test

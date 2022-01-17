@@ -34,12 +34,13 @@ public class EccezioneCoordErrate extends Exception {
 		return mex;
 	}
 	
+	/** Metodi per utilizzare il dizionario */
+	Dizionario diz=new Dizionario();
+	
 	/** 
 	 * Metodo che chiede all'utente di cercare coord inserendo il nome
 	 * 
 	 */
-	Dizionario diz=new Dizionario();
-	
 	public void CoordNome() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Le città presenti nel dizionario sono: Ancona, Pescara, Catania, Milano, Firenze");
@@ -52,7 +53,6 @@ public class EccezioneCoordErrate extends Exception {
 	 * Metodo che chiede all'utente di cercare coord inserendo id
 	 * 
 	 */
-	
 	public void Coordid() {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Gli id delle città disponibili sono: A271, G482, C351, F205, D612");
@@ -67,7 +67,6 @@ public class EccezioneCoordErrate extends Exception {
 	 * desiderate tramite nome o id della città
 	 * 
 	 */
-	
 	public void menuDizionario() {
 		System.out.println();
 		System.out.println("Le coordinate inserite sono errate!");
