@@ -11,7 +11,7 @@ public class InformazioniMeteo {
 	 */
 	private double tempEff; //data in Kelvin
 	private double tempPer;
-	private long umidità; //data in %
+	private long umidita; //data in %
 	private String data; //espressa con sistema 'unix, UTC'
 	
 	/**
@@ -20,8 +20,8 @@ public class InformazioniMeteo {
 	public InformazioniMeteo() {
 		
 	}
-	public InformazioniMeteo(long umidità, double tempEff, double tempPer, String data) {
-		this.umidità=umidità;
+	public InformazioniMeteo(long umidita, double tempEff, double tempPer, String data) {
+		this.umidita=umidita;
 		this.tempEff=tempEff;
 		this.tempPer=tempPer;
 		this.data=data;
@@ -37,7 +37,7 @@ public class InformazioniMeteo {
 		return tempPer;
 	}
 	public long getUmidita() {
-		return umidità;
+		return umidita;
 	}
 	public String getData() {
 		return data;
@@ -52,8 +52,8 @@ public class InformazioniMeteo {
 	public void setTempPer(double tempPer) {
 		this.tempPer = tempPer;
 	}
-	public void setUmidita(long umidità) {
-		this.umidità = umidità;
+	public void setUmidita(long umidita) {
+		this.umidita = umidita;
 	}
 	public void setData(String data) {
 		this.data = data;
@@ -65,7 +65,7 @@ public class InformazioniMeteo {
 	 */
 	@Override
 	public String toString() {
-		String s= "Data: " + data + "\n"+ "Umidità: "+ umidità;
+		String s= "Data: " + data + "\n"+ "Umidità: "+ umidita;
 		s+= "Temperatura effettiva: "+ tempEff+ "Temperatura percepita: "+ tempPer;
 		return s;
 	}
