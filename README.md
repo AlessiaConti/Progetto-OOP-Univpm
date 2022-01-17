@@ -121,7 +121,7 @@ non sia compreso tra 1 e 30. L'inserimento avviene nella console di comandi del 
 ![55ea4486d7657c99e4baa9eb216ea2e7](https://user-images.githubusercontent.com/91212564/148922591-525ef1f3-13bf-4b05-b880-ba93062e8185.png)
 
 
-**Eccezione CoordErrate** stampa un messaggio di errore nel caso in cui le coordinate inserite dall'utente tramite la rotta */getWeather* sono errate, cioè se entrambi i parametri lat e lon inseriti (o uno dei due) sono minori di -180 o maggiori di 180. Inoltre prevede l'utilizzo del dizionario per cercare le coordinate di interesse tramite nome o id della città. L'inserimento avviene nella console del compilatore.
+**Eccezione CoordErrate** stampa un messaggio di errore (su Console) nel caso in cui le coordinate inserite dall'utente tramite la rotta */getWeather* sono errate, cioè se entrambi i parametri lat e lon inseriti (o uno dei due) sono minori di -180 o maggiori di 180. Inoltre prevede l'utilizzo del dizionario per cercare le coordinate di interesse tramite nome o id della città. L'inserimento avviene nella console del compilatore.
 
 ![image](https://user-images.githubusercontent.com/91316014/149811512-3880c739-c057-4ac3-859e-37640381690e.png)![image](https://user-images.githubusercontent.com/91316014/149811549-01926863-e137-40d4-ae20-76da4b947994.png)
 
