@@ -52,8 +52,8 @@ public class WeatherController {
 			datiMeteo = service.toJSON(service.getMeteo(service.readJSON(lat,lon)));
 			stampa.stampaMeteo(datiMeteo); 
 			return new ResponseEntity<> (datiMeteo, HttpStatus.OK);
-		} catch (EccezioneCoordErrate e) {
-			return new ResponseEntity<>(e.getMex(),HttpStatus.BAD_REQUEST);
+		} catch (IOException e) {
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
 		} 
 
 	} 	

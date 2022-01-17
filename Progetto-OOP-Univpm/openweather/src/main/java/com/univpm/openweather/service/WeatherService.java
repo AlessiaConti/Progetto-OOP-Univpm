@@ -8,6 +8,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,6 +16,7 @@ import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
 import com.univpm.openweather.exception.EccezioneCoordErrate;
+import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
 
 /**
@@ -46,46 +48,53 @@ public class WeatherService implements WeatherServiceInterface {
 	@Override
 	public JSONObject readJSON(double lat, double lon) throws IOException, EccezioneCoordErrate {
 
-		if((lat<-180 || lat>180) && (lon<-180 || lon>180)) throw new EccezioneCoordErrate("Le coordinate inserite sono errate!");
-		else if (lat<-180 || lat>180) throw new EccezioneCoordErrate("La latitudine inserita è errata!");
-		else if (lon<-180 || lon>180) throw new EccezioneCoordErrate("La longitudine inserita è errata!");
+		Dizionario diz=new Dizionario();
 
-		else {
+		do {
+			try {
+				if((lat<-180 || lat>180) && (lon<-180 || lon>180)) throw new EccezioneCoordErrate("Le coordinate inserite sono errate!");
+				else if (lat<-180 || lat>180) throw new EccezioneCoordErrate("La latitudine inserita è errata!");
+				else if (lon<-180 || lon>180) throw new EccezioneCoordErrate("La longitudine inserita è errata!");	
 
-			JSONObject meteo=null;
+			} catch(EccezioneCoordErrate e) { 
+				e.menuDizionario(); /** permette utilizzo del dizionario*/
+			} 
+		} while ((lat<-180 || lat>180) || (lon<-180 || lon>180));
 
-			try { 
-				/**stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita*/
-				URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
-				/**metto il file generato da url su un input stream*/
-				InputStream in= openConnection.getInputStream();
 
-				String data= " ";
-				String line= " ";
+		JSONObject meteo=null;
 
-				try {
-					InputStreamReader inR= new InputStreamReader(in);
-					BufferedReader buf= new BufferedReader(inR);
+		try { 
+			/**stabilisco connessione url: costruisco l'URL da cui poi leggerò file in uscita*/
+			URLConnection openConnection= new URL (url+"lat="+lat+"&lon="+lon+ "&appid="+apiKey).openConnection();
+			/**metto il file generato da url su un input stream*/
+			InputStream in= openConnection.getInputStream();
 
-					while((line= buf.readLine() ) != null) {
-						data+=line;
-					} 
-				} finally {
-					in.close();
-				}
-				/**effettuo il parsing in JSON Object*/
-				meteo=(JSONObject) JSONValue.parseWithException(data); 
+			String data= " ";
+			String line= " ";
 
-				/**catch annidato delle eccezioni*/	
-			} catch(IOException e) {	  
-				e.printStackTrace();
-			} catch (Exception e) {
-				e.printStackTrace();
+			try {
+				InputStreamReader inR= new InputStreamReader(in);
+				BufferedReader buf= new BufferedReader(inR);
+
+				while((line= buf.readLine() ) != null) {
+					data+=line;
+				} 
+			} finally {
+				in.close();
 			}
+			/**effettuo il parsing in JSON Object*/
+			meteo=(JSONObject) JSONValue.parseWithException(data); 
 
-			return meteo;
+			/**catch annidato delle eccezioni*/	
+		} catch(IOException e) {	  
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 
-		}
+		return meteo;
+
 	}
 
 
