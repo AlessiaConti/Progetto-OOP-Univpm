@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.univpm.openweather.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.univpm.openweather"},{"l":"com.univpm.openweather.controller"},{"l":"com.univpm.openweather.exception"},{"l":"com.univpm.openweather.filters"},{"l":"com.univpm.openweather.IO"},{"l":"com.univpm.openweather.model"},{"l":"com.univpm.openweather.service"},{"l":"com.univpm.openweather.stats"}];updateSearchResults();

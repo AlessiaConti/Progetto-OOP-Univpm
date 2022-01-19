@@ -8,7 +8,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,7 +15,6 @@ import org.json.simple.JSONValue;
 import org.springframework.stereotype.Service;
 
 import com.univpm.openweather.exception.EccezioneCoordErrate;
-import com.univpm.openweather.exception.EccezionePersonalizzata;
 import com.univpm.openweather.model.*;
 
 /**
@@ -40,27 +38,28 @@ public class WeatherService implements WeatherServiceInterface {
 	/** 
 	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
 	 * passando come parametri le coordinate della città
-	 * @param double lat
-	 * @param double lon
+	 * @param lat latitudine
+	 * @param lon longitudine
 	 * @return JSONObject contenente i dati meteo
+	 * @throws IOException
 	 * @throws EccezioneCoordErrate se le coordinate inserite sono <-180 o >180
 	 */
 	@Override
 	public JSONObject readJSON(double lat, double lon) throws IOException, EccezioneCoordErrate {
 
-		Dizionario diz=new Dizionario();
+		while ((lat<-180 || lat>180) || (lon<-180 || lon>180)) {
 
-		do {
 			try {
 				if((lat<-180 || lat>180) && (lon<-180 || lon>180)) throw new EccezioneCoordErrate("Le coordinate inserite sono errate!");
 				else if (lat<-180 || lat>180) throw new EccezioneCoordErrate("La latitudine inserita è errata!");
 				else if (lon<-180 || lon>180) throw new EccezioneCoordErrate("La longitudine inserita è errata!");	
 
 			} catch(EccezioneCoordErrate e) { 
+				System.out.println();
+				System.out.println("Le coordinate inserite sono errate!");
 				e.menuDizionario(); /** permette utilizzo del dizionario*/
 			} 
-		} while ((lat<-180 || lat>180) || (lon<-180 || lon>180));
-
+		} 
 
 		JSONObject meteo=null;
 
@@ -94,14 +93,14 @@ public class WeatherService implements WeatherServiceInterface {
 		} 
 
 		return meteo;
-
 	}
+
 
 
 	/** 
 	 * Questo metodo serve per leggere il file JSON ottenuto dalla chiamata API 
 	 * passando come parametro il nome della città (utilizzato per la rotta /getWeatherbyName)
-	 * @param String city (nome della città)
+	 * @param city String rappresenta il nome della città
 	 * @return JSONObject contenente i dati meteo
 	 */
 	@Override
@@ -140,8 +139,8 @@ public class WeatherService implements WeatherServiceInterface {
 
 	/**
 	 * Questo metodo serve per ottenere i dati meteo richiesti
-	 * @param JSONObject contenente i dati meteo
-	 * @return oggetto di tipo Citta con dati meteo aggiornati
+	 * @param obj JSONObject contenente i dati meteo
+	 * @return city Oggetto di tipo Citta con dati meteo aggiornati
 	 */
 	@Override
 	public Citta getMeteo(JSONObject obj) {
@@ -170,8 +169,8 @@ public class WeatherService implements WeatherServiceInterface {
 
 	/**
 	 * Questo metodo serve per costruire la struttura del JSON da restituire all'utente
-	 * @param oggetto di tipo Citta 
-	 * @return JSONObject contenente i dati meteo della città richiesta dall'utente
+	 * @param city Oggetto di tipo Citta 
+	 * @return output JSONObject contenente i dati meteo della città richiesta dall'utente
 	 */
 	@SuppressWarnings("unchecked")
 	@Override

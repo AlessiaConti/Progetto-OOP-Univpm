@@ -8,7 +8,7 @@ import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.model.Citta;
 
 /**
- * Questa è l'interfaccia che contiene i metodi richiamati dal Controller.
+ * Interfaccia che contiene i metodi richiamati dal Controller
  * @author A.Conti
  * 
  */

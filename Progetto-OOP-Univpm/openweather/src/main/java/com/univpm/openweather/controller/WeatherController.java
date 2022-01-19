@@ -15,7 +15,8 @@ import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.service.WeatherService;
 
 /**
- * Classe contenente le richieste per ottenere dati meteo di una città (temp.eff.,temp.perc. e umidità)
+ * Classe contenente le richieste per ottenere dati meteo di una citta' 
+ * (temp.eff.,temp.perc. e umidita')
  */
 
 @Controller 
@@ -35,15 +36,14 @@ public class WeatherController {
 	 * e prevede anche un salvataggio in locale dei dati meteo su un file chiamato 'Dati meteo.txt'
 	 * 
 	 * @author F.Fabiocchi, A.Conti
-	 * @param double lat
-	 * @param double lon
-	 * @return datiMeteo
+	 * @param  lat latitudine
+	 * @param  lon longitudine
+	 * @return datiMeteo JSONObject contenente info meteo
 	 * @throws IOException
-	 * @throws EccezioneCoordErrate
+	 * @throws EccezioneCoordErrate se le coordinate inserite sono <-180 o >180
 	 * */
 	@RequestMapping(value="/getWeather")                
-	public ResponseEntity<Object> getWeather( @RequestParam(name="lat") double lat, 
-			@RequestParam (name="lon") double lon) 
+	public ResponseEntity<Object> getWeather( @RequestParam(name="lat") double lat,  @RequestParam (name="lon") double lon) 
 					throws IOException, EccezioneCoordErrate { 
 
 		JSONObject datiMeteo = null;
@@ -64,7 +64,7 @@ public class WeatherController {
 	 * temperatura percepita della città inserita da utente tramite nome
 	 * 
 	 * @author A.Conti
-	 * @param String city che rappresenta il nome della città di cui si richiedono le previsioni
+	 * @param city Stringa che rappresenta il nome della città di cui si richiedono le previsioni
 	 * @return JSONObject contenente la data e le previsioni meteo
 	 * */
 	@RequestMapping(value="/getWeatherbyName")                

@@ -33,10 +33,10 @@ public class EccezioneCoordErrate extends Exception {
 	public String getMex() {
 		return mex;
 	}
-	
+
 	/** Metodi per utilizzare il dizionario */
 	Dizionario diz=new Dizionario();
-	
+
 	/** 
 	 * Metodo che chiede all'utente di cercare coord inserendo il nome
 	 * 
@@ -48,7 +48,7 @@ public class EccezioneCoordErrate extends Exception {
 		String cityName = input.nextLine();
 		diz.getCoordinateNome(cityName);
 	}
-	
+
 	/** 
 	 * Metodo che chiede all'utente di cercare coord inserendo id
 	 * 
@@ -59,29 +59,28 @@ public class EccezioneCoordErrate extends Exception {
 		System.out.println("Inserisci id della città: ");
 		String id = input.nextLine();
 		diz.getCoordinateiD(id) ;
-		
+
 	}
-	
+
 	/** 
 	 * Metodo che dà all'utente la possibilità di scegliere se cercare coordinate
 	 * desiderate tramite nome o id della città
 	 * 
 	 */
 	public void menuDizionario() {
-		System.out.println();
-		System.out.println("Le coordinate inserite sono errate!");
+		Scanner input = new Scanner(System.in);
 		System.out.println();
 		System.out.println("---- DIZIONARIO ----"); 
 		System.out.println("Cerca le coordinate corrette della città tramite nome o id"); 
-		Scanner input = new Scanner(System.in);
 		System.out.println(" Cosa vuoi inserire? ");
 		System.out.println(" 1. Nome della città ");
 		System.out.println(" 2. Id della città ");
 		int x = input.nextInt();
-		if (x==1) CoordNome();
-		else if (x==2) Coordid();
-		else System.out.println("inserisci 1 o 2");
-		
+		switch(x) {
+		case 1: CoordNome(); break;
+		case 2: Coordid(); break;
+		default: System.out.println("errore");
+		}
 	}
 
 

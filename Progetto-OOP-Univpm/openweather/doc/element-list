@@ -1,1 +1,8 @@
+com.univpm.openweather
+com.univpm.openweather.controller
+com.univpm.openweather.exception
+com.univpm.openweather.filters
+com.univpm.openweather.IO
 com.univpm.openweather.model
+com.univpm.openweather.service
+com.univpm.openweather.stats

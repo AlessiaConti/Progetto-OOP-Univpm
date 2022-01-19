@@ -11,7 +11,7 @@ import com.univpm.openweather.model.Citta;
 import com.univpm.openweather.stats.StatsImpl;
 
 /**
- * Classe che esegue calcoli (min,max,media,varianza) su una statistica desiderata dall'utente tra temperatura percepita, effettiva e umidità
+ * Classe che esegue calcoli (min,max,media,varianza) su una statistica desiderata dall'utente tra temperatura percepita, effettiva e umidita'
  * 
  * @author F.Fabiocchi
  *

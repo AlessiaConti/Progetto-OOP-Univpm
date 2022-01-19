@@ -1,7 +1,7 @@
 package com.univpm.openweather.model;
 
 /** 
- * Questa classe descrive le proprietà di ogni città e le relative informazioni meteo
+ * Classe che descrive le proprieta' di ogni citta' e le relative informazioni meteo
  */
 
 public class Citta {
@@ -18,11 +18,11 @@ public class Citta {
 	/** Costruttori utili: */
 
 	/** Costruttore di default*/
-	public Citta() {
-	}
+	public Citta() {}
+	
 	/**
 	 * Costruttore con coordinate in input
-	 * @param Coordinate
+	 * @param coord
 	 */
 	public Citta(Coordinate coord) {
 		this.coordinate=coord;

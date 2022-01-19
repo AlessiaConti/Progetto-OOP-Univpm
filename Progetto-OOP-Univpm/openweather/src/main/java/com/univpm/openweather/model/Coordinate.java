@@ -1,7 +1,7 @@
 package com.univpm.openweather.model;
 
 /**
- * Classe che rappresenta le coordinate (latitudine e longitudine) di una città
+ * Classe che rappresenta le coordinate (latitudine e longitudine) di una citta'
  */
 
 public class Coordinate {

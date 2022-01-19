@@ -12,7 +12,7 @@ import com.univpm.openweather.exception.EccezioneCoordErrate;
 import com.univpm.openweather.service.*;
 
 /**
- * Classe che sfruttando WeatherService salva in locale il JSON della città cercata con WeatherController
+ * Classe che sfruttando WeatherService salva in locale il JSON della citta' cercata con WeatherController
  * @author F.Fabiocchi
  */ 
 @Service
