@@ -11,14 +11,18 @@ import java.util.HashMap;
 
 public class Dizionario {
 	
-	//attributi
+	/** 
+	 * Attributi che definiscono il dizionario
+	 */
 	private static final HashMap<String,String> elencoCittaNome = new HashMap<String,String>();
 	private static final HashMap<String,String> elencoCittaId = new HashMap<String,String>();
 
 	private static String[] eleCitta = {"Ancona", "Pescara", "Catania", "Milano", "Firenze"};
 	private static String[] eleID = {"A271", "G482", "C351", "F205", "D612"};
 
-	//static
+	/** 
+	 * Blocco static che riempie il dizionario associando ad ogni città e ID le rispettive coordinate
+	 */
 	static {
 
 		elencoCittaNome.put(eleCitta[0], "43.61675973 , 13.51887537");
@@ -35,9 +39,9 @@ public class Dizionario {
 
 	}
 
-	/**
-	 * Metodo per stampare coordinate in base al nome della citta'
-	 * @param citta Stringa che rappresenta nome della citta'
+	/** 
+	 * Metodo che restituisce in output le coordinate relative al nome della città inserita
+	 * @param citta indica il nome della città richiesta
 	 */
 	public void getCoordinateNome(String citta) { 
 
@@ -48,9 +52,9 @@ public class Dizionario {
 		}	
 	}
 
-	/**
-	 * Metodo per stampare coordinate in base all'ID della citta'
-	 * @param iD Stringa che rappresenta id della citta'
+	/** 
+	 * Metodo che restituisce in output le coordinate relative all'ID della città inserita
+	 * @param iD indica il codice identificativo della città richiesta
 	 */
 	public void getCoordinateiD(String iD) {
 
