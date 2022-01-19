@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- * Classe che definisce il dizionario città-coordinate e ID-coordinate
+ * Classe che definisce il dizionario citta'-coordinate e ID-coordinate
  * @author A.Scalzi
  *
  */
@@ -35,8 +35,10 @@ public class Dizionario {
 
 	}
 
-	//metodi per stampare coordinate in base nome/ID
-	
+	/**
+	 * Metodo per stampare coordinate in base al nome della citta'
+	 * @param citta Stringa che rappresenta nome della citta'
+	 */
 	public void getCoordinateNome(String citta) { 
 
 		if (Arrays.asList(eleCitta).contains(citta)) {
@@ -46,7 +48,10 @@ public class Dizionario {
 		}	
 	}
 
-	
+	/**
+	 * Metodo per stampare coordinate in base all'ID della citta'
+	 * @param iD Stringa che rappresenta id della citta'
+	 */
 	public void getCoordinateiD(String iD) {
 
 		if (Arrays.asList(eleID).contains(iD)) {

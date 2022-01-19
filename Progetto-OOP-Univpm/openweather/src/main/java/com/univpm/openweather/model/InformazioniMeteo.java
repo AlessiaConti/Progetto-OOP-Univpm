@@ -17,9 +17,15 @@ public class InformazioniMeteo {
 	/**
 	 * Costruttori utili
 	 */
-	public InformazioniMeteo() {
-		
-	}
+	public InformazioniMeteo() {}
+	
+	/**
+	 * Costruttore parametrizzato
+	 * @param umidita
+	 * @param tempEff
+	 * @param tempPer
+	 * @param data
+	 */
 	public InformazioniMeteo(long umidita, double tempEff, double tempPer, String data) {
 		this.umidita=umidita;
 		this.tempEff=tempEff;
