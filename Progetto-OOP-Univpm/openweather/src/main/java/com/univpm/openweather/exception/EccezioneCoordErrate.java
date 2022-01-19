@@ -28,7 +28,7 @@ public class EccezioneCoordErrate extends Exception {
 	/**
 	 * Metodo che restituisce un messaggio di errore passato dal costruttore quando le coord inserite sono sbagliate
 	 * 
-	 * @return String che contiene il messaggio d'errore che viene stampato.
+	 * @return mex String che contiene il messaggio d'errore che viene stampato.
 	 */
 	public String getMex() {
 		return mex;
