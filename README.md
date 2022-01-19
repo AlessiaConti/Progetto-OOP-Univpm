@@ -139,7 +139,7 @@ Per verificare il corretto funzionamento di alcuni metodi e alcune eccezioni, so
 
 
 ## Documentazione
-Tutto il progetto è documentato in [Javadoc](file:///C:/Users/aless/Documents/GitHub/Progetto-OOP-Univpm/Progetto-OOP-Univpm/openweather/doc/index.html).
+Tutto il progetto è documentato in [Javadoc](https://github.com/FabiocchiF/Progetto-OOP-Univpm/tree/main/Progetto-OOP-Univpm/openweather/doc).
 
 
 ## Struttura del progetto
